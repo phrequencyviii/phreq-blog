@@ -1,0 +1,89 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+
+type Props = CollectionEntry<'links'>['data'];
+
+const { title, url, description, pubDate } = Astro.props;
+const hostname = new URL(url).hostname;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description ?? SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.title h1 a {
+				text-decoration: none;
+				color: rgb(var(--black));
+			}
+			.title h1 a:hover {
+				color: var(--accent);
+			}
+			.source {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				font-size: 0.9em;
+				color: rgb(var(--gray));
+				text-decoration: none;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 6px;
+				padding: 0.3em 0.6em;
+				margin-top: 0.5em;
+			}
+			.source:hover {
+				color: var(--accent);
+				border-color: var(--accent);
+			}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="prose">
+					<div class="title">
+						<div class="date">
+							<FormattedDate date={pubDate} />
+						</div>
+						<h1><a href={url} target="_blank" rel="noopener noreferrer">{title} ↗</a></h1>
+						<a class="source" href={url} target="_blank" rel="noopener noreferrer">
+							{hostname}
+						</a>
+					</div>
+					<hr />
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

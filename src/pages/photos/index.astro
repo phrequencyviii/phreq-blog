@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const photos = (await getCollection('photos')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Photos — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 960px;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.grid li a {
+				display: block;
+				text-decoration: none;
+			}
+			.grid li img {
+				width: 100%;
+				aspect-ratio: 1;
+				object-fit: cover;
+				border-radius: 8px;
+				transition: opacity 0.2s;
+			}
+			.grid li a:hover img {
+				opacity: 0.85;
+			}
+			.caption {
+				margin: 0.3em 0 0;
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+			}
+			@media (max-width: 720px) {
+				.grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Photos</h1>
+			<ul class="grid">
+				{
+					photos.map((photo) => (
+						<li>
+							<a href={`/photos/${photo.id}/`}>
+								<Image
+									src={photo.data.heroImage}
+									alt={photo.data.description ?? photo.data.title ?? ''}
+									width={600}
+									height={600}
+								/>
+								{(photo.data.title || photo.data.description) && (
+									<p class="caption">{photo.data.title ?? photo.data.description}</p>
+								)}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

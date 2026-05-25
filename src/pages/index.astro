@@ -1,0 +1,155 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = await getCollection('posts');
+const links = await getCollection('links');
+const photos = await getCollection('photos');
+
+const feed = [
+	...posts.map((p) => ({ type: 'post' as const, id: p.id, data: p.data, url: `/posts/${p.id}/` })),
+	...links.map((l) => ({ type: 'link' as const, id: l.id, data: l.data, url: `/links/${l.id}/` })),
+	...photos.map((ph) => ({ type: 'photo' as const, id: ph.id, data: ph.data, url: `/photos/${ph.id}/` })),
+].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 720px;
+			}
+			.feed {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+			}
+			.feed-item {
+				display: flex;
+				flex-direction: column;
+				gap: 0.2em;
+			}
+			.feed-item a {
+				text-decoration: none;
+			}
+			.type-badge {
+				font-size: 0.7em;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--accent);
+			}
+			.item-title {
+				margin: 0;
+				font-size: 1.05em;
+				color: rgb(var(--black));
+				line-height: 1.35;
+				transition: color 0.15s;
+			}
+			.feed-item a:hover .item-title {
+				color: var(--accent);
+			}
+			.item-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+				font-size: 0.82em;
+				color: rgb(var(--gray));
+			}
+			.item-source {
+				color: rgb(var(--gray));
+			}
+			.item-desc {
+				margin: 0;
+				font-size: 0.9em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.4;
+			}
+			.photo-thumb {
+				width: 80px;
+				height: 80px;
+				object-fit: cover;
+				border-radius: 6px;
+				flex-shrink: 0;
+			}
+			.post-row {
+				display: flex;
+				gap: 0.75rem;
+				align-items: flex-start;
+			}
+			.post-thumb {
+				width: 80px;
+				height: 56px;
+				object-fit: cover;
+				border-radius: 6px;
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<ul class="feed">
+				{
+					feed.map((item) => (
+						<li class="feed-item">
+							{item.type === 'post' && (
+								<a href={item.url} class="post-row">
+									{item.data.heroImage && (
+										<Image class="post-thumb" src={item.data.heroImage} alt="" width={160} height={112} />
+									)}
+									<div>
+										<span class="type-badge">post</span>
+										<h4 class="item-title">{item.data.title}</h4>
+										<div class="item-meta">
+											<FormattedDate date={item.data.pubDate} />
+										</div>
+										{item.data.description && <p class="item-desc">{item.data.description}</p>}
+									</div>
+								</a>
+							)}
+							{item.type === 'link' && (
+								<>
+									<span class="type-badge">link</span>
+									<a href={item.url}>
+										<h4 class="item-title">{item.data.title} ↗</h4>
+									</a>
+									<div class="item-meta">
+										<FormattedDate date={item.data.pubDate} />
+										<span>·</span>
+										<span class="item-source">{new URL(item.data.url).hostname}</span>
+									</div>
+									{item.data.description && <p class="item-desc">{item.data.description}</p>}
+								</>
+							)}
+							{item.type === 'photo' && (
+								<a href={item.url} class="post-row">
+									<Image class="photo-thumb" src={item.data.heroImage} alt={item.data.description ?? ''} width={160} height={160} />
+									<div>
+										<span class="type-badge">photo</span>
+										<h4 class="item-title">{item.data.title ?? 'Photo'}</h4>
+										<div class="item-meta">
+											<FormattedDate date={item.data.pubDate} />
+										</div>
+										{item.data.description && <p class="item-desc">{item.data.description}</p>}
+									</div>
+								</a>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

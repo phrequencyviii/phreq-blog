@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: phrequencyviii/phreq-blog
+  branch: main
+  base_url: https://phreq-blog.pages.dev
+  auth_endpoint: api/auth
+
+media_folder: src/assets/uploads
+public_folder: ../../assets/uploads
+
+collections:
+  - name: posts
+    label: Posts
+    folder: src/content/posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Last Updated, name: updatedDate, widget: datetime, required: false }
+      - { label: Hero Image, name: heroImage, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: links
+    label: Links
+    folder: src/content/links
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: URL, name: url, widget: string }
+      - { label: Commentary, name: description, widget: text, required: false }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: photos
+    label: Photos
+    folder: src/content/photos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description / Caption, name: description, widget: text, required: false }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Photo, name: heroImage, widget: image }
+      - { label: Body, name: body, widget: markdown, required: false }
