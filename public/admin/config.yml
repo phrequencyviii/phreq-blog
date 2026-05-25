@@ -2,7 +2,7 @@ backend:
   name: github
   repo: phrequencyviii/phreq-blog
   branch: main
-  base_url: https://phreq-blog.pages.dev
+  base_url: https://phreq.blog
   auth_endpoint: api/auth
 
 media_folder: src/assets/uploads
