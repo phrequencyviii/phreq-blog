@@ -5,7 +5,9 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<a href="/" class="site-logo" aria-label="Home">
+			<img src="/logo.webp" alt={SITE_TITLE} height="40" />
+		</a>
 		<div class="internal-links">
 			<HeaderLink href="/posts">Posts</HeaderLink>
 			<HeaderLink href="/links">Links</HeaderLink>
@@ -13,18 +15,16 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="social-links">
-			<a href="https://github.com/phrequencyviii" target="_blank">
-				<span class="sr-only">GitHub</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="28" height="28">
+			<a href="https://github.com/phrequencyviii" target="_blank" aria-label="GitHub">
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
 					<path
 						fill="currentColor"
 						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
 					></path>
 				</svg>
 			</a>
-			<a href="/rss.xml" target="_blank">
-				<span class="sr-only">RSS feed</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="28" height="28">
+			<a href="/rss.xml" target="_blank" aria-label="RSS feed">
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
 					<path
 						fill="currentColor"
 						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -37,42 +37,78 @@ import HeaderLink from './HeaderLink.astro';
 <style>
 	header {
 		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		padding: 0 1.5em;
+		background: #161616;
+		border-bottom: 1px solid #252525;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+	.site-logo {
+		display: flex;
+		align-items: center;
+		opacity: 0.9;
+		transition: opacity 0.15s;
 	}
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
+	.site-logo:hover {
+		opacity: 1;
+	}
+	.site-logo img {
+		display: block;
+		height: 40px;
+		width: auto;
 	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		height: 56px;
+		gap: 1em;
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
+	.internal-links {
 		display: flex;
-		gap: 0.5em;
+		gap: 0.25em;
+	}
+	.internal-links a {
+		font-family: var(--font-mono);
+		font-size: 0.75em;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		padding: 0.5em 0.75em;
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		border: 1px solid transparent;
+		border-radius: 2px;
+		transition: color 0.15s, border-color 0.15s;
+	}
+	.internal-links a:hover,
+	.internal-links a.active {
+		color: var(--accent);
+		border-color: #2a2a2a;
+		opacity: 1;
+	}
+	.internal-links a.active {
+		color: rgb(var(--black));
+	}
+	.social-links {
+		display: flex;
 		align-items: center;
+		gap: 0.75em;
+	}
+	.social-links a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		transition: color 0.15s;
+	}
+	.social-links a:hover {
+		color: var(--accent);
+		opacity: 1;
 	}
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
+		}
+		.internal-links a {
+			padding: 0.5em 0.4em;
 		}
 	}
 </style>

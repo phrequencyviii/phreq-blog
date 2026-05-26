@@ -38,22 +38,26 @@ const feed = [
 				display: flex;
 				flex-direction: column;
 				gap: 0.2em;
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid #1e1e1e;
 			}
 			.feed-item a {
 				text-decoration: none;
 			}
 			.type-badge {
-				font-size: 0.7em;
-				font-weight: 700;
-				letter-spacing: 0.08em;
+				font-family: var(--font-mono);
+				font-size: 0.65em;
+				letter-spacing: 0.1em;
 				text-transform: uppercase;
 				color: var(--accent);
 			}
 			.item-title {
-				margin: 0;
-				font-size: 1.05em;
+				font-family: var(--font-cormorant);
+				margin: 0.1em 0 0;
+				font-size: 1.4em;
+				font-weight: 600;
 				color: rgb(var(--black));
-				line-height: 1.35;
+				line-height: 1.2;
 				transition: color 0.15s;
 			}
 			.feed-item a:hover .item-title {
@@ -63,23 +67,26 @@ const feed = [
 				display: flex;
 				align-items: center;
 				gap: 0.5em;
-				font-size: 0.82em;
+				font-family: var(--font-mono);
+				font-size: 0.7em;
+				letter-spacing: 0.04em;
 				color: rgb(var(--gray));
+				margin-top: 0.3em;
 			}
 			.item-source {
 				color: rgb(var(--gray));
 			}
 			.item-desc {
-				margin: 0;
+				margin: 0.4em 0 0;
 				font-size: 0.9em;
 				color: rgb(var(--gray-dark));
-				line-height: 1.4;
+				line-height: 1.5;
 			}
 			.photo-thumb {
 				width: 80px;
 				height: 80px;
 				object-fit: cover;
-				border-radius: 6px;
+				border-radius: 2px;
 				flex-shrink: 0;
 			}
 			.post-row {
@@ -91,7 +98,7 @@ const feed = [
 				width: 80px;
 				height: 56px;
 				object-fit: cover;
-				border-radius: 6px;
+				border-radius: 2px;
 				flex-shrink: 0;
 			}
 		</style>

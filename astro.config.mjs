@@ -11,14 +11,20 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Geist',
-			cssVariable: '--font-geist',
+			name: 'Cormorant Garamond',
+			cssVariable: '--font-cormorant',
+			fallbacks: ['Georgia', 'serif'],
+		},
+		{
+			provider: fontProviders.google(),
+			name: 'Inter',
+			cssVariable: '--font-inter',
 			fallbacks: ['sans-serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Geist Mono',
-			cssVariable: '--font-geist-mono',
+			name: 'IBM Plex Mono',
+			cssVariable: '--font-mono',
 			fallbacks: ['monospace'],
 		},
 	],
