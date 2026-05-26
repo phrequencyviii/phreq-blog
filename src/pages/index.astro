@@ -1,21 +1,16 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const posts = await getCollection('posts');
-const links = await getCollection('links');
-const photos = await getCollection('photos');
-
-const feed = [
-	...posts.map((p) => ({ type: 'post' as const, id: p.id, data: p.data, url: `/posts/${p.id}/` })),
-	...links.map((l) => ({ type: 'link' as const, id: l.id, data: l.data, url: `/links/${l.id}/` })),
-	...photos.map((ph) => ({ type: 'photo' as const, id: ph.id, data: ph.data, url: `/photos/${ph.id}/` })),
-].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+	'../assets/featured/*.{jpg,jpeg,png,webp,avif}',
+	{ eager: true },
+);
+const images = Object.values(imageModules).map((m) => m.default);
 ---
 
 <!doctype html>
@@ -23,140 +18,95 @@ const feed = [
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 720px;
+			body {
+				overflow: hidden;
 			}
-			.feed {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				flex-direction: column;
-				gap: 1.5rem;
+			.stage {
+				position: relative;
+				width: 100vw;
+				height: calc(100vh - 68px);
+				background: #111111;
 			}
-			.feed-item {
-				display: flex;
-				flex-direction: column;
-				gap: 0.2em;
-				padding-bottom: 1.5rem;
-				border-bottom: 1px solid #1e1e1e;
+			.hero {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				opacity: 0;
+				transition: opacity 0.6s ease;
 			}
-			.feed-item a {
-				text-decoration: none;
+			.hero.active {
+				opacity: 1;
 			}
-			.type-badge {
+			.shuffle-btn {
+				position: absolute;
+				bottom: 1.25rem;
+				right: 1.25rem;
+				background: rgba(0, 0, 0, 0.45);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				color: rgba(255, 255, 255, 0.5);
 				font-family: var(--font-mono);
-				font-size: 0.65em;
+				font-size: 0.65rem;
 				letter-spacing: 0.1em;
 				text-transform: uppercase;
-				color: var(--accent);
-			}
-			.item-title {
-				font-family: var(--font-cormorant);
-				margin: 0.1em 0 0;
-				font-size: 1.4em;
-				font-weight: 600;
-				color: rgb(var(--black));
-				line-height: 1.2;
-				transition: color 0.15s;
-			}
-			.feed-item a:hover .item-title {
-				color: var(--accent);
-			}
-			.item-meta {
-				display: flex;
-				align-items: center;
-				gap: 0.5em;
-				font-family: var(--font-mono);
-				font-size: 0.7em;
-				letter-spacing: 0.04em;
-				color: rgb(var(--gray));
-				margin-top: 0.3em;
-			}
-			.item-source {
-				color: rgb(var(--gray));
-			}
-			.item-desc {
-				margin: 0.4em 0 0;
-				font-size: 0.9em;
-				color: rgb(var(--gray-dark));
-				line-height: 1.5;
-			}
-			.photo-thumb {
-				width: 80px;
-				height: 80px;
-				object-fit: cover;
+				padding: 0.4em 0.75em;
+				cursor: pointer;
 				border-radius: 2px;
-				flex-shrink: 0;
+				transition: color 0.15s, border-color 0.15s;
+				backdrop-filter: blur(4px);
 			}
-			.post-row {
-				display: flex;
-				gap: 0.75rem;
-				align-items: flex-start;
-			}
-			.post-thumb {
-				width: 80px;
-				height: 56px;
-				object-fit: cover;
-				border-radius: 2px;
-				flex-shrink: 0;
+			.shuffle-btn:hover {
+				color: rgba(255, 255, 255, 0.85);
+				border-color: rgba(255, 255, 255, 0.3);
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<ul class="feed">
+			<div class="stage">
 				{
-					feed.map((item) => (
-						<li class="feed-item">
-							{item.type === 'post' && (
-								<a href={item.url} class="post-row">
-									{item.data.heroImage && (
-										<Image class="post-thumb" src={item.data.heroImage} alt="" width={160} height={112} />
-									)}
-									<div>
-										<span class="type-badge">post</span>
-										<h4 class="item-title">{item.data.title}</h4>
-										<div class="item-meta">
-											<FormattedDate date={item.data.pubDate} />
-										</div>
-										{item.data.description && <p class="item-desc">{item.data.description}</p>}
-									</div>
-								</a>
-							)}
-							{item.type === 'link' && (
-								<>
-									<span class="type-badge">link</span>
-									<a href={item.url}>
-										<h4 class="item-title">{item.data.title} ↗</h4>
-									</a>
-									<div class="item-meta">
-										<FormattedDate date={item.data.pubDate} />
-										<span>·</span>
-										<span class="item-source">{new URL(item.data.url).hostname}</span>
-									</div>
-									{item.data.description && <p class="item-desc">{item.data.description}</p>}
-								</>
-							)}
-							{item.type === 'photo' && (
-								<a href={item.url} class="post-row">
-									<Image class="photo-thumb" src={item.data.heroImage} alt={item.data.description ?? ''} width={160} height={160} />
-									<div>
-										<span class="type-badge">photo</span>
-										<h4 class="item-title">{item.data.title ?? 'Photo'}</h4>
-										<div class="item-meta">
-											<FormattedDate date={item.data.pubDate} />
-										</div>
-										{item.data.description && <p class="item-desc">{item.data.description}</p>}
-									</div>
-								</a>
-							)}
-						</li>
+					images.map((img, i) => (
+						<Image
+							src={img}
+							alt=""
+							class="hero"
+							width={1920}
+							height={1080}
+							data-index={i}
+						/>
 					))
 				}
-			</ul>
+				{images.length > 1 && <button class="shuffle-btn" id="shuffle">shuffle</button>}
+			</div>
 		</main>
 		<Footer />
+		<script>
+			const imgs = document.querySelectorAll<HTMLImageElement>('.hero');
+			let current = 0;
+
+			function show(index: number) {
+				imgs.forEach((img) => img.classList.remove('active'));
+				imgs[index].classList.add('active');
+				current = index;
+			}
+
+			function random(exclude: number) {
+				if (imgs.length === 1) return 0;
+				let next;
+				do { next = Math.floor(Math.random() * imgs.length); }
+				while (next === exclude);
+				return next;
+			}
+
+			// Pick random on load
+			show(random(-1));
+
+			// Shuffle button
+			document.getElementById('shuffle')?.addEventListener('click', () => {
+				show(random(current));
+			});
+		</script>
 	</body>
 </html>
