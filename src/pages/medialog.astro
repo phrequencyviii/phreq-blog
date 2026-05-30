@@ -149,33 +149,35 @@ const sections = [
 				margin: 0 0 0.85em;
 			}
 
-			/* ── Music grid ── */
-			.music-grid {
+			/* ── Shared card grid ── */
+			.card-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(130px, 155px));
 				gap: 1.25em;
 				justify-content: start;
 			}
-			.music-card {
+			.media-card {
 				display: flex;
 				flex-direction: column;
 				gap: 0.4em;
 			}
-			.music-card .cover {
+			.media-card .cover {
 				width: 100%;
-				aspect-ratio: 1;
 				object-fit: cover;
 				border-radius: 2px;
 				display: block;
 				background: rgb(var(--gray-light));
 			}
-			.music-card .cover-placeholder {
+			.media-card .cover.square    { aspect-ratio: 1; }
+			.media-card .cover.portrait  { aspect-ratio: 2 / 3; }
+			.media-card .cover-placeholder {
 				width: 100%;
-				aspect-ratio: 1;
 				background: rgb(var(--gray-light));
 				border-radius: 2px;
 			}
-			.music-card .card-title {
+			.media-card .cover-placeholder.square   { aspect-ratio: 1; }
+			.media-card .cover-placeholder.portrait { aspect-ratio: 2 / 3; }
+			.media-card .card-title {
 				font-size: 0.78em;
 				color: rgb(var(--black));
 				line-height: 1.3;
@@ -183,13 +185,13 @@ const sections = [
 				font-family: var(--font-inter);
 				font-weight: 500;
 			}
-			.music-card .card-artist {
+			.media-card .card-sub {
 				font-family: var(--font-mono);
 				font-size: 0.65em;
 				color: rgb(var(--gray));
 				letter-spacing: 0.03em;
 			}
-			.music-card .card-meta {
+			.media-card .card-meta {
 				font-family: var(--font-mono);
 				font-size: 0.95em;
 				color: rgb(var(--gray));
@@ -197,7 +199,7 @@ const sections = [
 				text-align: center;
 			}
 
-			/* ── List entries (TV / Film / Books) ── */
+			/* ── List entries (Books) ── */
 			.entry-list {
 				list-style: none;
 				padding: 0;
@@ -211,9 +213,7 @@ const sections = [
 				padding: 0.55em 0;
 				border-bottom: 1px solid var(--border);
 			}
-			.entry:last-child {
-				border-bottom: none;
-			}
+			.entry:last-child { border-bottom: none; }
 			.entry-thumb {
 				width: 48px;
 				height: 68px;
@@ -223,18 +223,12 @@ const sections = [
 				background: rgb(var(--gray-light));
 				flex-shrink: 0;
 			}
-			.entry-thumb.square {
-				height: 48px;
-			}
 			.entry-thumb-placeholder {
 				width: 48px;
 				height: 68px;
 				background: rgb(var(--gray-light));
 				border-radius: 1px;
 				flex-shrink: 0;
-			}
-			.entry-thumb-placeholder.square {
-				height: 48px;
 			}
 			.entry-info {
 				display: flex;
@@ -273,18 +267,12 @@ const sections = [
 			}
 
 			@media (max-width: 720px) {
-				.music-grid {
+				.card-grid {
 					grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 					gap: 1em;
 				}
-				.entry {
-					grid-template-columns: 40px 1fr auto;
-				}
-				.entry-thumb,
-				.entry-thumb-placeholder {
-					width: 40px;
-					height: 56px;
-				}
+				.entry { grid-template-columns: 40px 1fr auto; }
+				.entry-thumb, .entry-thumb-placeholder { width: 40px; height: 56px; }
 			}
 		</style>
 	</head>
@@ -327,44 +315,19 @@ const sections = [
 
 					{byType[key].length === 0 ? (
 						<p class="empty">nothing logged yet</p>
-					) : key === 'music' ? (
-						/* ── Music: art grid ── */
-						<div class="music-grid">
-							{byType[key].map((entry) => (
-								<div class="music-card">
-									{entry.cover
-										? <img src={`/medialog/${entry.cover}`} alt={entry.title} class="cover" />
-										: <div class="cover-placeholder" />
-									}
-									<div class="card-title">{entry.title}</div>
-									{entry.artist && <div class="card-artist">{entry.artist}</div>}
-									{entry.rating && (
-									<div class="card-meta">{stars(entry.rating)}</div>
-								)}
-								</div>
-							))}
-						</div>
-					) : (
-						/* ── TV / Film / Books: list with thumb ── */
+					) : key === 'book' ? (
+						/* ── Books: list ── */
 						<ul class="entry-list">
 							{byType[key].map((entry) => (
 								<li class="entry">
 									{entry.cover
-										? <img
-												src={`/medialog/${entry.cover}`}
-												alt={entry.title}
-												class:list={['entry-thumb', { square: key === 'book' }]}
-											/>
-										: <div class:list={['entry-thumb-placeholder', { square: key === 'book' }]} />
+										? <img src={`/medialog/${entry.cover}`} alt={entry.title} class="entry-thumb" />
+										: <div class="entry-thumb-placeholder" />
 									}
 									<div class="entry-info">
 										<span class="entry-title">{entry.title}</span>
-										{entry.artist && (
-											<span class="entry-sub">{entry.artist}</span>
-										)}
-										{entry.notes && (
-											<span class="entry-sub">{entry.notes}</span>
-										)}
+										{entry.artist && <span class="entry-sub">{entry.artist}</span>}
+										{entry.notes  && <span class="entry-sub">{entry.notes}</span>}
 									</div>
 									<div class="entry-meta">
 										<span>{formatDate(entry.finished)}</span>
@@ -373,6 +336,25 @@ const sections = [
 								</li>
 							))}
 						</ul>
+					) : (
+						/* ── Music / TV / Film: card grid ── */
+						<div class="card-grid">
+							{byType[key].map((entry) => (
+								<div class="media-card">
+									{entry.cover
+										? <img
+												src={`/medialog/${entry.cover}`}
+												alt={entry.title}
+												class:list={['cover', key === 'music' ? 'square' : 'portrait']}
+											/>
+										: <div class:list={['cover-placeholder', key === 'music' ? 'square' : 'portrait']} />
+									}
+									<div class="card-title">{entry.title}</div>
+									{entry.artist && <div class="card-sub">{entry.artist}</div>}
+									{entry.rating && <div class="card-meta">{stars(entry.rating)}</div>}
+								</div>
+							))}
+						</div>
 					)}
 				</section>
 			))}
