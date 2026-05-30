@@ -23,5 +23,29 @@
     "finished": "2026-06",
     "rating": 4,
     "cover": "austin-powers.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "10 Things I Hate About You",
+    "year": 1999,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "10-things.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Zack and Miri Make a Porno",
+    "year": 2008,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "zack-and-miri.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Batman",
+    "year": 1989,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "batman-1989.jpg"
   }
 ]
