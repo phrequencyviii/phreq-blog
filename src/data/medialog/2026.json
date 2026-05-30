@@ -16,5 +16,14 @@
     "finished": "2026-06",
     "rating": 4,
     "cover": "american-dad.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Austin Powers: International Man of Mystery",
+    "artist": "Jay Roach",
+    "year": 1997,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "austin-powers.jpg"
   }
 ]
