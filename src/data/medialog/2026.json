@@ -47,5 +47,14 @@
     "finished": "2026-06",
     "rating": 4,
     "cover": "batman-1989.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Aqua and Bondi: The Road to OS X & The Computer That Saved Apple",
+    "artist": "Stephen Hackett",
+    "year": 2024,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "aqua-and-bondi.png"
   }
 ]
