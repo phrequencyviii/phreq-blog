@@ -1,29 +1,84 @@
 :root {
-	--accent: #e0e0e0;
-	--black: 216, 216, 216;
-	--gray: 75, 75, 75;
-	--gray-light: 20, 20, 20;
-	--gray-dark: 170, 170, 170;
-	--border: #222222;
-	--box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+	/* light mode */
+	--accent:      #1c1c1c;
+	--black:       28, 28, 28;
+	--gray:        100, 100, 100;
+	--gray-light:  208, 211, 216;
+	--gray-dark:   48, 52, 58;
+	--border:      #b0b6be;
+	--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.12);
+	--bg:          #e0e3e8;
+	--header-bg:   #cbd0d8;
+	--link-color:  #555555;
 }
+
+/* Dark mode — system preference */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--accent:      #e4e8f0;
+		--black:       218, 222, 230;
+		--gray:        118, 126, 140;
+		--gray-light:  38, 44, 54;
+		--gray-dark:   175, 183, 198;
+		--border:      #333c4a;
+		--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.5);
+		--bg:          #1b1f26;
+		--header-bg:   #222730;
+		--link-color:  #7a8898;
+	}
+}
+
+/* Dark mode — manual toggle overrides system */
+html[data-theme="dark"] {
+	--accent:      #e4e8f0;
+	--black:       218, 222, 230;
+	--gray:        118, 126, 140;
+	--gray-light:  38, 44, 54;
+	--gray-dark:   175, 183, 198;
+	--border:      #333c4a;
+	--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.5);
+	--bg:          #1b1f26;
+	--header-bg:   #222730;
+	--link-color:  #7a8898;
+}
+html[data-theme="light"] {
+	--accent:      #1c1c1c;
+	--black:       28, 28, 28;
+	--gray:        100, 100, 100;
+	--gray-light:  208, 211, 216;
+	--gray-dark:   48, 52, 58;
+	--border:      #b0b6be;
+	--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.12);
+	--bg:          #e0e3e8;
+	--header-bg:   #cbd0d8;
+	--link-color:  #555555;
+}
+
 body {
 	font-family: var(--font-inter);
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: #111111;
+	background: var(--bg);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--black));
 	font-size: 18px;
 	line-height: 1.7;
 }
+@keyframes pageContentIn {
+	from { opacity: 0; transform: translateY(10px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
 main {
 	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	animation: pageContentIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+@media (prefers-reduced-motion: reduce) {
+	main { animation: none; }
 }
 h1,
 h2,
@@ -58,7 +113,7 @@ b {
 	font-weight: 700;
 }
 a {
-	color: #999999;
+	color: var(--link-color);
 }
 a:hover {
 	color: var(--accent);

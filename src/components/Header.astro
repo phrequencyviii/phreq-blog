@@ -4,111 +4,159 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
+	<a href="/" class="site-logo" aria-label="Home">
+		<img src="/logo.webp" alt={SITE_TITLE} height="64" />
+	</a>
 	<nav>
-		<a href="/" class="site-logo" aria-label="Home">
-			<img src="/logo.webp" alt={SITE_TITLE} height="40" />
-		</a>
-		<div class="internal-links">
-			<HeaderLink href="/posts">Posts</HeaderLink>
-			<HeaderLink href="/links">Links</HeaderLink>
-			<HeaderLink href="/photos">Photos</HeaderLink>
+		<div class="nav-links">
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/medialog">Medialog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://github.com/phrequencyviii" target="_blank" aria-label="GitHub">
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
-					<path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="16" height="16">
+					<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+				</svg>
+			</a>
+			<a href="https://www.xbox.com/play/user/phrequencyviii" target="_blank" aria-label="Xbox">
+				<svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+					<path fill="currentColor" d="M4.102 21.033C6.211 22.881 8.977 24 12 24c3.026 0 5.789-1.119 7.902-2.967 1.877-1.912-4.316-8.709-7.902-11.417-3.582 2.708-9.779 9.505-7.898 11.417zm11.16-14.406c2.5 2.961 7.484 10.313 6.076 12.912C23.002 17.48 24 14.861 24 12.004c0-3.34-1.365-6.362-3.57-8.536 0 0-.027-.022-.082-.042-.063-.022-.152-.045-.281-.045-.592 0-1.985.434-4.805 3.246zM3.654 3.426c-.057.02-.082.041-.086.042C1.365 5.642 0 8.664 0 12.004c0 2.854.998 5.473 2.661 7.533-1.401-2.605 3.579-9.951 6.08-12.91-2.82-2.813-4.216-3.245-4.806-3.245-.131 0-.223.021-.281.046v-.002zM12 3.551S9.055 1.828 6.755 1.746c-.903-.033-1.454.295-1.521.339C7.379.646 9.659 0 11.984 0H12c2.334 0 4.605.646 6.766 2.085-.068-.046-.615-.372-1.52-.339C14.946 1.828 12 3.545 12 3.545v.006z"></path>
+				</svg>
+			</a>
+			<a href="https://music.apple.com/profile/phrequencyviii" target="_blank" aria-label="Apple Music">
+				<svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+					<path fill="currentColor" d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"></path>
 				</svg>
 			</a>
 			<a href="/rss.xml" target="_blank" aria-label="RSS feed">
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
-					<path
-						fill="currentColor"
-						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-					></path>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="16" height="16">
+					<path fill="currentColor" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
 				</svg>
 			</a>
+			<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+				<svg class="icon-sun" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+					<path fill="currentColor" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zm0 15a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM21 11.25a.75.75 0 010 1.5h-2.25a.75.75 0 010-1.5H21zM5.25 12a.75.75 0 01-.75.75H2.25a.75.75 0 010-1.5H4.5a.75.75 0 01.75.75zm12.97-7.22a.75.75 0 010 1.06l-1.59 1.59a.75.75 0 01-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zm-16.5 1.06a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06L2.72 6.84a.75.75 0 010-1.06zm16.5 14.44a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zm-14.94-1.59a.75.75 0 01-1.06 1.06L2.72 18.16a.75.75 0 011.06-1.06l1.59 1.59z"/>
+				</svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+					<path fill="currentColor" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+				</svg>
+			</button>
 		</div>
 	</nav>
 </header>
 <style>
 	header {
-		margin: 0;
-		padding: 0 1.5em;
-		background: #161616;
-		border-bottom: 1px solid #252525;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1.25em 1.5em 0;
+		background: var(--header-bg);
+		border-bottom: 1px solid var(--border);
+		transition: background 0.3s ease, border-color 0.3s ease;
 	}
 	.site-logo {
 		display: flex;
 		align-items: center;
-		opacity: 0.9;
-		transition: opacity 0.15s;
+		opacity: 0.92;
+		transition: opacity 0.2s ease;
+		margin-bottom: 0.5em;
 	}
-	.site-logo:hover {
-		opacity: 1;
-	}
+	.site-logo:hover { opacity: 1; }
 	.site-logo img {
 		display: block;
-		height: 52px;
+		height: 64px;
 		width: auto;
 	}
 	nav {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		height: 68px;
-		gap: 1em;
-	}
-	.internal-links {
-		display: flex;
 		gap: 0.25em;
+		height: 44px;
 	}
-	.internal-links a {
+	.nav-links {
+		display: flex;
+		align-items: center;
+	}
+	.nav-links a {
 		font-family: var(--font-mono);
-		font-size: 0.75em;
-		letter-spacing: 0.06em;
+		font-size: 0.72em;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		padding: 0.5em 0.75em;
 		color: rgb(var(--gray-dark));
 		text-decoration: none;
 		border: 1px solid transparent;
 		border-radius: 2px;
-		transition: color 0.15s, border-color 0.15s;
+		transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 	}
-	.internal-links a:hover,
-	.internal-links a.active {
+	.nav-links a:hover {
 		color: var(--accent);
-		border-color: #2a2a2a;
+		border-color: var(--border);
 		opacity: 1;
+		transform: translateY(-1px);
 	}
-	.internal-links a.active {
-		color: rgb(var(--black));
+	.nav-links a.active {
+		color: var(--accent);
+		border-color: rgb(var(--black));
+		font-weight: 600;
+		opacity: 1;
 	}
 	.social-links {
 		display: flex;
 		align-items: center;
-		gap: 0.75em;
+		gap: 0.5em;
+		margin-left: 0.75em;
+		padding-left: 0.75em;
+		border-left: 1px solid var(--border);
 	}
 	.social-links a {
 		color: rgb(var(--gray));
 		text-decoration: none;
 		display: flex;
 		align-items: center;
-		transition: color 0.15s;
+		transition: color 0.2s ease, transform 0.15s ease;
 	}
 	.social-links a:hover {
 		color: var(--accent);
 		opacity: 1;
+		transform: scale(1.2);
 	}
+	/* Theme toggle button */
+	.theme-toggle {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		color: rgb(var(--gray));
+		display: flex;
+		align-items: center;
+		transition: color 0.2s ease, transform 0.15s ease;
+		line-height: 1;
+	}
+	.theme-toggle:hover {
+		color: var(--accent);
+		transform: scale(1.2);
+	}
+	/* Show sun in dark mode, moon in light mode */
+	.icon-sun { display: none; }
+	.icon-moon { display: block; }
+	html[data-theme="dark"] .icon-sun,
+	:root:not(html[data-theme="light"]) .icon-sun {
+		display: none;
+	}
+	@media (prefers-color-scheme: dark) {
+		.icon-sun { display: block; }
+		.icon-moon { display: none; }
+	}
+	html[data-theme="dark"] .icon-sun { display: block; }
+	html[data-theme="dark"] .icon-moon { display: none; }
+	html[data-theme="light"] .icon-sun { display: none; }
+	html[data-theme="light"] .icon-moon { display: block; }
 	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-		.internal-links a {
-			padding: 0.5em 0.4em;
-		}
+		.social-links { display: none; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.nav-links a, .social-links a, .theme-toggle { transition: none; }
 	}
 </style>

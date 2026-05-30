@@ -1,0 +1,20 @@
+[
+  {
+    "type": "music",
+    "title": "The Antichrist Imperium",
+    "artist": "The Antichrist Imperium",
+    "year": 2015,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "antichrist-imperium.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "American Dad!",
+    "artist": "Seth MacFarlane",
+    "year": 2005,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "american-dad.jpg"
+  }
+]

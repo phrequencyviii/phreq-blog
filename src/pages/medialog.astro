@@ -1,0 +1,382 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+
+interface MediaEntry {
+	type: 'tv' | 'movie' | 'book' | 'music';
+	title: string;
+	artist?: string;
+	year: number;
+	finished: string; // YYYY-MM, e.g. "2026-06"
+	rating?: number;  // 1–5
+	notes?: string;
+	cover?: string;   // filename in public/medialog/
+}
+
+// Auto-picks up new year files without any code changes
+const yearModules = import.meta.glob<{ default: MediaEntry[] }>(
+	'../data/medialog/*.json',
+	{ eager: true },
+);
+const allEntries: MediaEntry[] = Object.values(yearModules)
+	.flatMap((m) => m.default)
+	.sort((a, b) => b.finished.localeCompare(a.finished));
+
+const byType = {
+	music: allEntries.filter((e) => e.type === 'music'),
+	tv:    allEntries.filter((e) => e.type === 'tv'),
+	movie: allEntries.filter((e) => e.type === 'movie'),
+	book:  allEntries.filter((e) => e.type === 'book'),
+};
+
+function formatDate(yyyymm: string) {
+	const [y, m] = yyyymm.split('-');
+	const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	return `${months[parseInt(m) - 1]} ${y}`;
+}
+
+function stars(n: number) {
+	return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+const sections = [
+	{ key: 'music' as const, label: 'Music',      id: 'music',  note: undefined },
+	{ key: 'tv'    as const, label: 'Television', id: 'tv',     note: 'All episodes available at time of logging watched.' },
+	{ key: 'movie' as const, label: 'Film',        id: 'film',  note: undefined },
+	{ key: 'book'  as const, label: 'Books',       id: 'books', note: undefined },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Medialog" description={SITE_DESCRIPTION} />
+		<style>
+			.page-header {
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid var(--border);
+			}
+			.page-header h1 {
+				font-size: 2.4em;
+				margin-bottom: 0.15em;
+			}
+			.intro {
+				border-top: 1px solid var(--border);
+				padding-top: 1em;
+			}
+			.intro p {
+				font-size: 0.95em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.7;
+				margin: 0 0 1.25em;
+			}
+			.jump-nav {
+				display: flex;
+				gap: 0.5em;
+				align-items: center;
+				flex-wrap: wrap;
+				padding-top: 0.75em;
+				border-top: 1px solid var(--border);
+			}
+			.jump-nav a {
+				font-family: var(--font-mono);
+				font-size: 0.68em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: rgb(var(--gray));
+				text-decoration: none;
+				transition: color 0.2s ease;
+			}
+			.jump-nav a:hover {
+				color: var(--accent);
+			}
+			.games-link {
+				font-family: var(--font-mono);
+				font-size: 0.78em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.04em;
+				margin: 0;
+			}
+			.games-link a {
+				color: rgb(var(--gray));
+				transition: color 0.2s ease;
+			}
+			.games-link a:hover {
+				color: var(--accent);
+			}
+			.jump-nav .sep {
+				color: rgb(var(--gray));
+				opacity: 0.4;
+				font-size: 0.7em;
+			}
+
+			/* ── Section shell ── */
+			.section {
+				margin-bottom: 3em;
+			}
+			.section-title {
+				font-family: var(--font-mono);
+				font-size: 0.68em;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgb(var(--gray));
+				margin-bottom: 0.75em;
+				padding-bottom: 0.5em;
+				border-bottom: 1px solid var(--border);
+				display: flex;
+				align-items: baseline;
+				gap: 0.5em;
+			}
+			.count {
+				opacity: 0.6;
+			}
+			.empty {
+				font-family: var(--font-mono);
+				font-size: 0.72em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.04em;
+				padding: 0.5em 0;
+			}
+
+			.section-note {
+				font-family: var(--font-mono);
+				font-size: 0.65em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.03em;
+				margin: 0 0 0.85em;
+			}
+
+			/* ── Music grid ── */
+			.music-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(130px, 155px));
+				gap: 1.25em;
+				justify-content: start;
+			}
+			.music-card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+			}
+			.music-card .cover {
+				width: 100%;
+				aspect-ratio: 1;
+				object-fit: cover;
+				border-radius: 2px;
+				display: block;
+				background: rgb(var(--gray-light));
+			}
+			.music-card .cover-placeholder {
+				width: 100%;
+				aspect-ratio: 1;
+				background: rgb(var(--gray-light));
+				border-radius: 2px;
+			}
+			.music-card .card-title {
+				font-size: 0.78em;
+				color: rgb(var(--black));
+				line-height: 1.3;
+				margin: 0;
+				font-family: var(--font-inter);
+				font-weight: 500;
+			}
+			.music-card .card-artist {
+				font-family: var(--font-mono);
+				font-size: 0.65em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.03em;
+			}
+			.music-card .card-meta {
+				font-family: var(--font-mono);
+				font-size: 0.95em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.04em;
+				text-align: center;
+			}
+
+			/* ── List entries (TV / Film / Books) ── */
+			.entry-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.entry {
+				display: grid;
+				grid-template-columns: 48px 1fr auto;
+				align-items: center;
+				gap: 0.85em;
+				padding: 0.55em 0;
+				border-bottom: 1px solid var(--border);
+			}
+			.entry:last-child {
+				border-bottom: none;
+			}
+			.entry-thumb {
+				width: 48px;
+				height: 68px;
+				object-fit: cover;
+				border-radius: 1px;
+				display: block;
+				background: rgb(var(--gray-light));
+				flex-shrink: 0;
+			}
+			.entry-thumb.square {
+				height: 48px;
+			}
+			.entry-thumb-placeholder {
+				width: 48px;
+				height: 68px;
+				background: rgb(var(--gray-light));
+				border-radius: 1px;
+				flex-shrink: 0;
+			}
+			.entry-thumb-placeholder.square {
+				height: 48px;
+			}
+			.entry-info {
+				display: flex;
+				flex-direction: column;
+				gap: 0.15em;
+				min-width: 0;
+			}
+			.entry-title {
+				font-size: 0.92em;
+				color: rgb(var(--black));
+				font-weight: 500;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.entry-sub {
+				font-family: var(--font-mono);
+				font-size: 0.68em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.03em;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.entry-meta {
+				font-family: var(--font-mono);
+				font-size: 0.65em;
+				color: rgb(var(--gray));
+				letter-spacing: 0.04em;
+				white-space: nowrap;
+				text-align: right;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				gap: 0.25em;
+			}
+
+			@media (max-width: 720px) {
+				.music-grid {
+					grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+					gap: 1em;
+				}
+				.entry {
+					grid-template-columns: 40px 1fr auto;
+				}
+				.entry-thumb,
+				.entry-thumb-placeholder {
+					width: 40px;
+					height: 56px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Medialog</h1>
+				<div class="intro">
+					<p>June 2026, I decided to start tracking down stuff I've read, watched, and listened to, and a quick little star rating. All the big social platforms and apps that help track this stuff end up getting enshittified, so I'll just do it myself. This just includes stuff as of June 2026. My head would explode if I tried to track anything before that.</p>
+					<nav class="jump-nav">
+						<a href="#games">Games</a>
+						<span class="sep">·</span>
+						{sections.map(({ label, id }, i) => (
+							<>
+								<a href={`#${id}`}>{label}</a>
+								{i < sections.length - 1 && <span class="sep">·</span>}
+							</>
+						))}
+					</nav>
+				</div>
+			</div>
+
+			<section class="section" id="games">
+				<div class="section-title">
+					Video Games
+				</div>
+				<p class="games-link">
+					Tracked separately — <a href="https://deprecated.games/completed/" target="_blank" rel="noopener">see here →</a>
+				</p>
+			</section>
+
+			{sections.map(({ key, label, id, note }) => (
+				<section class="section" id={id}>
+					<div class="section-title">
+						{label}
+						<span class="count">({byType[key].length})</span>
+					</div>
+					{note && <p class="section-note">{note}</p>}
+
+					{byType[key].length === 0 ? (
+						<p class="empty">nothing logged yet</p>
+					) : key === 'music' ? (
+						/* ── Music: art grid ── */
+						<div class="music-grid">
+							{byType[key].map((entry) => (
+								<div class="music-card">
+									{entry.cover
+										? <img src={`/medialog/${entry.cover}`} alt={entry.title} class="cover" />
+										: <div class="cover-placeholder" />
+									}
+									<div class="card-title">{entry.title}</div>
+									{entry.artist && <div class="card-artist">{entry.artist}</div>}
+									{entry.rating && (
+									<div class="card-meta">{stars(entry.rating)}</div>
+								)}
+								</div>
+							))}
+						</div>
+					) : (
+						/* ── TV / Film / Books: list with thumb ── */
+						<ul class="entry-list">
+							{byType[key].map((entry) => (
+								<li class="entry">
+									{entry.cover
+										? <img
+												src={`/medialog/${entry.cover}`}
+												alt={entry.title}
+												class:list={['entry-thumb', { square: key === 'book' }]}
+											/>
+										: <div class:list={['entry-thumb-placeholder', { square: key === 'book' }]} />
+									}
+									<div class="entry-info">
+										<span class="entry-title">{entry.title}</span>
+										{entry.artist && (
+											<span class="entry-sub">{entry.artist}</span>
+										)}
+										{entry.notes && (
+											<span class="entry-sub">{entry.notes}</span>
+										)}
+									</div>
+									<div class="entry-meta">
+										<span>{formatDate(entry.finished)}</span>
+										{entry.rating && <span>{stars(entry.rating)}</span>}
+									</div>
+								</li>
+							))}
+						</ul>
+					)}
+				</section>
+			))}
+		</main>
+		<Footer />
+	</body>
+</html>
