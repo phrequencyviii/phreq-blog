@@ -49,6 +49,14 @@
     "cover": "batman-1989.jpg"
   },
   {
+    "type": "movie",
+    "title": "Clerks II",
+    "year": 2006,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "clerks-ii.jpg"
+  },
+  {
     "type": "book",
     "title": "Aqua and Bondi: The Road to OS X & The Computer That Saved Apple",
     "artist": "Stephen Hackett",
