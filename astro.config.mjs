@@ -10,19 +10,19 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
-			provider: fontProviders.google(),
+			provider: fontProviders.bunny(),
 			name: 'Cormorant Garamond',
 			cssVariable: '--font-cormorant',
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
-			provider: fontProviders.google(),
+			provider: fontProviders.bunny(),
 			name: 'Inter',
 			cssVariable: '--font-inter',
 			fallbacks: ['sans-serif'],
 		},
 		{
-			provider: fontProviders.google(),
+			provider: fontProviders.bunny(),
 			name: 'IBM Plex Mono',
 			cssVariable: '--font-mono',
 			fallbacks: ['monospace'],
