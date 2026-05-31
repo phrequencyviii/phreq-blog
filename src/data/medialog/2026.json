@@ -9,6 +9,15 @@
     "cover": "antichrist-imperium.jpg"
   },
   {
+    "type": "music",
+    "title": "Volume II: Every Tongue Shall Praise Satan",
+    "artist": "The Antichrist Imperium",
+    "year": 2019,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "tai-volume-ii.jpg"
+  },
+  {
     "type": "tv",
     "title": "American Dad!",
     "year": 2005,
@@ -55,6 +64,30 @@
     "finished": "2026-06",
     "rating": 5,
     "cover": "clerks-ii.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Deadpool 2",
+    "year": 2018,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "deadpool-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Dumb and Dumber",
+    "year": 1994,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "dumb-and-dumber.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "How the Grinch Stole Christmas",
+    "year": 2000,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "the-grinch.jpg"
   },
   {
     "type": "book",
