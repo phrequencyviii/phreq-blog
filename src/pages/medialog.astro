@@ -5,7 +5,7 @@ import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION } from '../consts';
 
 interface MediaEntry {
-	type: 'tv' | 'movie' | 'book' | 'music';
+	type: 'tv' | 'movie' | 'book' | 'music' | 'comic';
 	title: string;
 	artist?: string;
 	year: number;
@@ -29,6 +29,7 @@ const byType = {
 	tv:    allEntries.filter((e) => e.type === 'tv'),
 	movie: allEntries.filter((e) => e.type === 'movie'),
 	book:  allEntries.filter((e) => e.type === 'book'),
+	comic: allEntries.filter((e) => e.type === 'comic'),
 };
 
 function formatDate(yyyymm: string) {
@@ -42,10 +43,11 @@ function stars(n: number) {
 }
 
 const sections = [
-	{ key: 'music' as const, label: 'Music',      id: 'music',  note: undefined },
-	{ key: 'tv'    as const, label: 'Television', id: 'tv',     note: 'All episodes available at time of logging watched.' },
-	{ key: 'movie' as const, label: 'Film',        id: 'film',  note: undefined },
-	{ key: 'book'  as const, label: 'Books',       id: 'books', note: undefined },
+	{ key: 'music' as const, label: 'Music',     id: 'music',  note: 'As you can tell…I like metal a lot.' },
+	{ key: 'tv'    as const, label: 'TV Shows',  id: 'tv',     note: "I'm not a big TV watcher and I tend to rewatch the same crap over and over for background noise, so this isn't going to impress anyone. All episodes available at time of logging watched." },
+	{ key: 'movie' as const, label: 'Movies',    id: 'movies', note: "Same with movies, everything I like tends to be light and I'm pretty easy to please." },
+	{ key: 'book'  as const, label: 'Books',     id: 'books',  note: 'Not a big fiction reader.' },
+	{ key: 'comic' as const, label: 'Comics',    id: 'comics', note: undefined },
 ];
 ---
 
@@ -282,9 +284,9 @@ const sections = [
 			<div class="page-header">
 				<h1>Medialog</h1>
 				<div class="intro">
-					<p>2026, I decided to start tracking down stuff I've read, watched, and listened to, and a quick little star rating. All the big social platforms and apps that help track this stuff end up getting enshittified, so I'll just do it myself. This just includes stuff as of 2026. My head would explode if I tried to track anything before that.</p>
+					<p>I decided to start tracking down stuff I've read, watched, and listened to, as well as a quick little star rating. All the big platforms and apps that help track this stuff end up getting enshittified, sold off, or closed down anyways, so I'll just do it myself. I started tracking as of 2026. My head would explode if I tried to track everything prior to that.</p>
 					<nav class="jump-nav">
-						<a href="#games">Games</a>
+						<a href="#games">Video Games</a>
 						<span class="sep">·</span>
 						{sections.map(({ label, id }, i) => (
 							<>
@@ -297,25 +299,20 @@ const sections = [
 			</div>
 
 			<section class="section" id="games">
-				<div class="section-title">
-					Video Games
-				</div>
+				<div class="section-title">Video Games</div>
 				<p class="games-link">
-					Tracked separately — <a href="https://deprecated.games/completed/" target="_blank" rel="noopener">see here →</a>
+					Tracked on my gaming blog, <a href="https://deprecated.games/completed/" target="_blank" rel="noopener">see here →</a>
 				</p>
 			</section>
 
 			{sections.map(({ key, label, id, note }) => (
 				<section class="section" id={id}>
-					<div class="section-title">
-						{label}
-						<span class="count">({byType[key].length})</span>
-					</div>
+					<div class="section-title">{label}</div>
 					{note && <p class="section-note">{note}</p>}
 
 					{byType[key].length === 0 ? (
 						<p class="empty">nothing logged yet</p>
-					) : key === 'book' ? (
+					) : key === 'book' || key === 'comic' ? (
 						/* ── Books: list ── */
 						<ul class="entry-list">
 							{byType[key].map((entry) => (
