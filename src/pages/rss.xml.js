@@ -4,14 +4,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 export async function GET(context) {
 	const posts = await getCollection('posts');
-	const links = await getCollection('links');
-	const photos = await getCollection('photos');
 
-	const items = [
-		...posts.map((p) => ({ ...p.data, link: `/posts/${p.id}/` })),
-		...links.map((l) => ({ ...l.data, link: `/links/${l.id}/` })),
-		...photos.map((ph) => ({ ...ph.data, title: ph.data.title ?? 'Photo', link: `/photos/${ph.id}/` })),
-	].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+	const items = posts
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+		.map((p) => ({
+			title: p.data.title,
+			description: p.data.description,
+			pubDate: p.data.pubDate,
+			link: `/blog/${p.id}/`,
+		}));
 
 	return rss({
 		title: SITE_TITLE,
