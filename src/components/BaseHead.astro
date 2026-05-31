@@ -61,6 +61,10 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
 
 <script>
+  // Clear any stale theme preference from localStorage
+  localStorage.removeItem('theme');
+  document.documentElement.removeAttribute('data-theme');
+
   // ── Active nav ──────────────────────────────────────────
   function setActiveNav() {
     const pathname = window.location.pathname.replace(/\/$/, '') || '/';
@@ -71,31 +75,5 @@ const { title, description, image = FallbackImage } = Astro.props;
     });
   }
 
-  // ── Theme ────────────────────────────────────────────────
-  function applyTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      document.documentElement.setAttribute('data-theme', saved);
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-  }
-
-  function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = current === 'dark' || (!current && systemDark);
-    const next = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  }
-
-  // Apply immediately to avoid flash
-  applyTheme();
-
-  document.addEventListener('astro:page-load', () => {
-    setActiveNav();
-    applyTheme();
-    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
-  });
+  document.addEventListener('astro:page-load', setActiveNav);
 </script>

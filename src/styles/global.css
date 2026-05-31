@@ -28,31 +28,6 @@
 	}
 }
 
-/* Dark mode — manual toggle overrides system */
-html[data-theme="dark"] {
-	--accent:      #e4e8f0;
-	--black:       218, 222, 230;
-	--gray:        118, 126, 140;
-	--gray-light:  38, 44, 54;
-	--gray-dark:   175, 183, 198;
-	--border:      #333c4a;
-	--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.5);
-	--bg:          #1b1f26;
-	--header-bg:   #222730;
-	--link-color:  #7a8898;
-}
-html[data-theme="light"] {
-	--accent:      #1c1c1c;
-	--black:       28, 28, 28;
-	--gray:        100, 100, 100;
-	--gray-light:  208, 211, 216;
-	--gray-dark:   48, 52, 58;
-	--border:      #b0b6be;
-	--box-shadow:  0 2px 12px rgba(0, 0, 0, 0.12);
-	--bg:          #e0e3e8;
-	--header-bg:   #cbd0d8;
-	--link-color:  #555555;
-}
 
 body {
 	font-family: var(--font-inter);

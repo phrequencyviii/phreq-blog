@@ -34,14 +34,6 @@ import HeaderLink from './HeaderLink.astro';
 					<path fill="currentColor" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
 				</svg>
 			</a>
-			<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-				<svg class="icon-sun" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
-					<path fill="currentColor" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zm0 15a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM21 11.25a.75.75 0 010 1.5h-2.25a.75.75 0 010-1.5H21zM5.25 12a.75.75 0 01-.75.75H2.25a.75.75 0 010-1.5H4.5a.75.75 0 01.75.75zm12.97-7.22a.75.75 0 010 1.06l-1.59 1.59a.75.75 0 01-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zm-16.5 1.06a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06L2.72 6.84a.75.75 0 010-1.06zm16.5 14.44a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zm-14.94-1.59a.75.75 0 01-1.06 1.06L2.72 18.16a.75.75 0 011.06-1.06l1.59 1.59z"/>
-				</svg>
-				<svg class="icon-moon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
-					<path fill="currentColor" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
-				</svg>
-			</button>
 		</div>
 	</nav>
 </header>
@@ -122,37 +114,6 @@ import HeaderLink from './HeaderLink.astro';
 		opacity: 1;
 		transform: scale(1.2);
 	}
-	/* Theme toggle button */
-	.theme-toggle {
-		background: none;
-		border: none;
-		padding: 0;
-		cursor: pointer;
-		color: rgb(var(--gray));
-		display: flex;
-		align-items: center;
-		transition: color 0.2s ease, transform 0.15s ease;
-		line-height: 1;
-	}
-	.theme-toggle:hover {
-		color: var(--accent);
-		transform: scale(1.2);
-	}
-	/* Show sun in dark mode, moon in light mode */
-	.icon-sun { display: none; }
-	.icon-moon { display: block; }
-	html[data-theme="dark"] .icon-sun,
-	:root:not(html[data-theme="light"]) .icon-sun {
-		display: none;
-	}
-	@media (prefers-color-scheme: dark) {
-		.icon-sun { display: block; }
-		.icon-moon { display: none; }
-	}
-	html[data-theme="dark"] .icon-sun { display: block; }
-	html[data-theme="dark"] .icon-moon { display: none; }
-	html[data-theme="light"] .icon-sun { display: none; }
-	html[data-theme="light"] .icon-moon { display: block; }
 	@media (max-width: 720px) {
 		.social-links { display: none; }
 	}
