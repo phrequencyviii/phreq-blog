@@ -43,11 +43,11 @@ function stars(n: number) {
 }
 
 const sections = [
-	{ key: 'music' as const, label: 'Music',    id: 'music',  note: 'As you can tell…I like metal a lot.' },
-	{ key: 'tv'    as const, label: 'TV Shows', id: 'tv',     note: "I'm not a big TV watcher and I tend to rewatch the same crap over and over for background noise, so this isn't going to impress anyone. All episodes available at time of logging watched." },
+	{ key: 'music' as const, label: 'Music',    id: 'music',  note: 'As you can tell… I like metal a lot.' },
+	{ key: 'tv'    as const, label: 'TV Shows', id: 'tv',     note: "I'm not a big TV watcher and I tend to rewatch the same crap over and over for background noise, so this isn't going to impress anyone." },
 	{ key: 'comic' as const, label: 'Comics',   id: 'comics', note: undefined },
 	{ key: 'movie' as const, label: 'Movies',   id: 'movies', note: "Same with movies, everything I like tends to be light and I'm pretty easy to please." },
-	{ key: 'book'  as const, label: 'Books',    id: 'books',  note: 'Not a big fiction reader.' },
+	{ key: 'book'  as const, label: 'Books',    id: 'books',  note: undefined },
 ];
 ---
 
@@ -286,12 +286,10 @@ const sections = [
 				<div class="intro">
 					<p>I decided to start tracking down stuff I've read, watched, and listened to, as well as a quick little star rating. All the big platforms and apps that help track this stuff end up getting enshittified, sold off, or closed down anyways, so I'll just do it myself. I started tracking as of 2026. My head would explode if I tried to track everything prior to that.</p>
 					<nav class="jump-nav">
-						<a href="#games">Video Games</a>
-						<span class="sep">·</span>
-						{sections.map(({ label, id }, i) => (
+						{[{ label: 'Video Games', id: 'games' }, ...sections.filter(s => byType[s.key].length > 0)].map(({ label, id }, i, arr) => (
 							<>
 								<a href={`#${id}`}>{label}</a>
-								{i < sections.length - 1 && <span class="sep">·</span>}
+								{i < arr.length - 1 && <span class="sep">·</span>}
 							</>
 						))}
 					</nav>
@@ -305,7 +303,7 @@ const sections = [
 				</p>
 			</section>
 
-			{sections.map(({ key, label, id, note }) => (
+			{sections.filter(({ key }) => byType[key].length > 0).map(({ key, label, id, note }) => (
 				<section class="section" id={id}>
 					<div class="section-title">{label}</div>
 					{note && <p class="section-note">{note}</p>}
