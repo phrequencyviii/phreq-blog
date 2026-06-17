@@ -1,6 +1,60 @@
 [
   {
     "type": "music",
+    "title": "Adore",
+    "artist": "Airs",
+    "year": 2021,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "adore.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Alpocalypse",
+    "artist": "\"Weird Al\" Yankovic",
+    "year": 2011,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "alpocalypse.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Among the Living",
+    "artist": "Anthrax",
+    "year": 1987,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "among-the-living.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Blizzard of Ozz",
+    "artist": "Ozzy Osbourne",
+    "year": 1980,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "blizzard-of-ozz.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Hideous Aftermath",
+    "artist": "Sanguisugabogg",
+    "year": 2025,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "hideous-aftermath.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Chaos Horrific",
+    "artist": "Cannibal Corpse",
+    "year": 2023,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "chaos-horrific.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Antichrist Imperium",
     "artist": "The Antichrist Imperium",
     "year": 2015,
@@ -19,11 +73,115 @@
   },
   {
     "type": "tv",
+    "title": "Knuckles",
+    "year": 2024,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "knuckles.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tim and Eric Awesome Show, Great Job!",
+    "year": 2007,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "tim-eric-awesome-show.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Check It Out! with Dr. Steve Brule",
+    "year": 2010,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "check-it-out.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "It's Always Sunny in Philadelphia",
+    "year": 2005,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "always-sunny.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tim & Eric's Bedtime Stories",
+    "year": 2014,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "tim-eric-bedtime-stories.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Harvey Birdman, Attorney at Law",
+    "year": 2000,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "harvey-birdman.jpg"
+  },
+  {
+    "type": "tv",
     "title": "American Dad!",
     "year": 2005,
     "finished": "2026-06",
     "rating": 4,
     "cover": "american-dad.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Aladdin",
+    "year": 1992,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "aladdin.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Austin Powers in Goldmember",
+    "year": 2002,
+    "finished": "2026-06",
+    "rating": 2,
+    "cover": "austin-powers-goldmember.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Batman",
+    "year": 2022,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "the-batman.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Batman v Superman: Dawn of Justice",
+    "year": 2016,
+    "finished": "2026-06",
+    "rating": 2,
+    "cover": "batman-v-superman.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Big Lebowski",
+    "year": 1998,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "big-lebowski.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Cable Guy",
+    "year": 1996,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "cable-guy.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Clerks",
+    "year": 1994,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "clerks.jpg"
   },
   {
     "type": "movie",
@@ -88,6 +246,58 @@
     "finished": "2026-06",
     "rating": 5,
     "cover": "the-grinch.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Teenage Mutant Ninja Turtles Color Classics, Vol. 3",
+    "year": 2014,
+    "finished": "2026-06",
+    "rating": 4
+  },
+  {
+    "type": "comic",
+    "title": "Batman: The Killing Joke",
+    "artist": "Alan Moore & Brian Bolland",
+    "year": 1988,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "killing-joke.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Confidential Confessions, Vol. 1",
+    "artist": "Reiko Momochi",
+    "year": 2003,
+    "finished": "2026-06",
+    "rating": 4,
+    "cover": "confidential-confessions.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Bone Vol. 2: The Great Cow Race",
+    "artist": "Jeff Smith",
+    "year": 1995,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "bone-vol-2.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Console Wars",
+    "artist": "Blake J. Harris",
+    "year": 2014,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "console-wars.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Long Hard Road Out of Hell",
+    "artist": "Marilyn Manson & Neil Strauss",
+    "year": 1998,
+    "finished": "2026-06",
+    "rating": 5,
+    "cover": "long-hard-road-out-of-hell.jpg"
   },
   {
     "type": "book",

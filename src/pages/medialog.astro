@@ -122,9 +122,10 @@ const sections = [
 			.section-title {
 				font-family: var(--font-mono);
 				font-size: 0.68em;
+				font-weight: 700;
 				letter-spacing: 0.12em;
 				text-transform: uppercase;
-				color: rgb(var(--gray));
+				color: rgb(var(--gray-dark));
 				margin-bottom: 0.75em;
 				padding-bottom: 0.5em;
 				border-bottom: 1px solid var(--border);
@@ -148,7 +149,7 @@ const sections = [
 				font-size: 0.65em;
 				color: rgb(var(--gray));
 				letter-spacing: 0.03em;
-				margin: 0 0 0.85em;
+				margin: 0 0 1.25em;
 			}
 
 			/* ── Shared card grid ── */
@@ -157,6 +158,7 @@ const sections = [
 				grid-template-columns: repeat(auto-fill, minmax(105px, 125px));
 				gap: 1em;
 				justify-content: start;
+				margin-top: 0.5em;
 			}
 			.media-card {
 				display: flex;
@@ -310,29 +312,7 @@ const sections = [
 
 					{byType[key].length === 0 ? (
 						<p class="empty">nothing logged yet</p>
-					) : key === 'book' || key === 'comic' ? (
-						/* ── Books: list ── */
-						<ul class="entry-list">
-							{byType[key].map((entry) => (
-								<li class="entry">
-									{entry.cover
-										? <img src={`/medialog/${entry.cover}`} alt={entry.title} class="entry-thumb" />
-										: <div class="entry-thumb-placeholder" />
-									}
-									<div class="entry-info">
-										<span class="entry-title">{entry.title}</span>
-										{entry.artist && <span class="entry-sub">{entry.artist}</span>}
-										{entry.notes  && <span class="entry-sub">{entry.notes}</span>}
-									</div>
-									<div class="entry-meta">
-										<span>{formatDate(entry.finished)}</span>
-										{entry.rating && <span>{stars(entry.rating)}</span>}
-									</div>
-								</li>
-							))}
-						</ul>
 					) : (
-						/* ── Music / TV / Film: card grid ── */
 						<div class="card-grid">
 							{byType[key].map((entry) => (
 								<div class="media-card">
