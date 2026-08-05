@@ -1,137 +1,203 @@
 [
   {
     "type": "music",
+    "title": "A.M G.O.D",
+    "artist": "...and Oceans",
+    "year": 2001,
+    "rating": 5,
+    "cover": "and-oceans-am-god.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The Above",
+    "artist": "Code Orange",
+    "year": 2023,
+    "rating": 5,
+    "cover": "code-orange-the-above.jpg"
+  },
+  {
+    "type": "music",
     "title": "Adore",
     "artist": "Airs",
     "year": 2021,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "adore.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Against the Seasons: Cold Winter Songs from the Dead Summer Heat",
+    "artist": "Woods of Ypres",
+    "year": 2002,
+    "rating": 5,
+    "cover": "woods-of-ypres-against-the-seasons.jpg"
   },
   {
     "type": "music",
     "title": "Alpocalypse",
     "artist": "\"Weird Al\" Yankovic",
     "year": 2011,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "alpocalypse.jpg"
+  },
+  {
+    "type": "music",
+    "title": "America Must Be Destroyed",
+    "artist": "GWAR",
+    "year": 1992,
+    "rating": 4,
+    "cover": "gwar-america-must-be-destroyed.jpg"
   },
   {
     "type": "music",
     "title": "Among the Living",
     "artist": "Anthrax",
     "year": 1987,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "among-the-living.jpg"
   },
   {
     "type": "music",
-    "title": "Blizzard of Ozz",
-    "artist": "Ozzy Osbourne",
-    "year": 1980,
-    "finished": "2026-06",
-    "rating": 5,
-    "cover": "blizzard-of-ozz.jpg"
-  },
-  {
-    "type": "music",
-    "title": "Hideous Aftermath",
-    "artist": "Sanguisugabogg",
-    "year": 2025,
-    "finished": "2026-06",
-    "rating": 5,
-    "cover": "hideous-aftermath.jpg"
-  },
-  {
-    "type": "music",
-    "title": "Chaos Horrific",
-    "artist": "Cannibal Corpse",
-    "year": 2023,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "chaos-horrific.jpg"
+    "title": "Anathema",
+    "artist": "Dawn of Ashes",
+    "year": 2013,
+    "rating": 3,
+    "cover": "dawn-of-ashes-anathema.jpg"
   },
   {
     "type": "music",
     "title": "The Antichrist Imperium",
     "artist": "The Antichrist Imperium",
     "year": 2015,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "antichrist-imperium.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Blizzard of Ozz",
+    "artist": "Ozzy Osbourne",
+    "year": 1980,
+    "rating": 5,
+    "cover": "blizzard-of-ozz.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Chaos Horrific",
+    "artist": "Cannibal Corpse",
+    "year": 2023,
+    "rating": 4,
+    "cover": "chaos-horrific.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Hideous Aftermath",
+    "artist": "Sanguisugabogg",
+    "year": 2025,
+    "rating": 5,
+    "cover": "hideous-aftermath.jpg"
   },
   {
     "type": "music",
     "title": "Volume II: Every Tongue Shall Praise Satan",
     "artist": "The Antichrist Imperium",
     "year": 2019,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "tai-volume-ii.jpg"
   },
   {
     "type": "tv",
-    "title": "Knuckles",
-    "year": 2024,
-    "finished": "2026-06",
+    "title": "American Dad!",
+    "year": 2005,
     "rating": 4,
-    "cover": "knuckles.jpg"
+    "cover": "american-dad.jpg"
   },
   {
     "type": "tv",
-    "title": "Tim and Eric Awesome Show, Great Job!",
-    "year": 2007,
-    "finished": "2026-06",
+    "title": "Arrested Development",
+    "year": 2003,
     "rating": 5,
-    "cover": "tim-eric-awesome-show.jpg"
+    "cover": "arrested-development.jpg"
   },
   {
     "type": "tv",
     "title": "Check It Out! with Dr. Steve Brule",
     "year": 2010,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "check-it-out.jpg"
   },
   {
     "type": "tv",
-    "title": "It's Always Sunny in Philadelphia",
-    "year": 2005,
-    "finished": "2026-06",
+    "title": "Clerks: The Animated Series",
+    "year": 2000,
     "rating": 5,
-    "cover": "always-sunny.jpg"
+    "cover": "clerks-animated.jpg"
   },
   {
     "type": "tv",
-    "title": "Tim & Eric's Bedtime Stories",
-    "year": 2014,
-    "finished": "2026-06",
-    "rating": 5,
-    "cover": "tim-eric-bedtime-stories.jpg"
+    "title": "Friends",
+    "year": 1994,
+    "rating": 4,
+    "cover": "friends.jpg"
   },
   {
     "type": "tv",
     "title": "Harvey Birdman, Attorney at Law",
     "year": 2000,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "harvey-birdman.jpg"
   },
   {
     "type": "tv",
-    "title": "American Dad!",
+    "title": "It's Always Sunny in Philadelphia",
     "year": 2005,
-    "finished": "2026-06",
+    "rating": 5,
+    "cover": "always-sunny.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Knuckles",
+    "year": 2024,
     "rating": 4,
-    "cover": "american-dad.jpg"
+    "cover": "knuckles.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The Oblongs",
+    "year": 2001,
+    "rating": 5,
+    "cover": "the-oblongs.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tim & Eric's Bedtime Stories",
+    "year": 2014,
+    "rating": 5,
+    "cover": "tim-eric-bedtime-stories.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tim and Eric Awesome Show, Great Job!",
+    "year": 2007,
+    "rating": 5,
+    "cover": "tim-eric-awesome-show.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tom Goes to the Mayor",
+    "year": 2004,
+    "rating": 4,
+    "cover": "tom-goes-to-the-mayor.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "10 Things I Hate About You",
+    "year": 1999,
+    "rating": 4,
+    "cover": "10-things.jpg"
   },
   {
     "type": "movie",
     "title": "Aladdin",
     "year": 1992,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "aladdin.jpg"
   },
@@ -139,15 +205,27 @@
     "type": "movie",
     "title": "Austin Powers in Goldmember",
     "year": 2002,
-    "finished": "2026-06",
     "rating": 2,
     "cover": "austin-powers-goldmember.jpg"
   },
   {
     "type": "movie",
+    "title": "Austin Powers: International Man of Mystery",
+    "year": 1997,
+    "rating": 4,
+    "cover": "austin-powers.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Batman",
+    "year": 1989,
+    "rating": 4,
+    "cover": "batman-1989.jpg"
+  },
+  {
+    "type": "movie",
     "title": "The Batman",
     "year": 2022,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "the-batman.jpg"
   },
@@ -155,7 +233,6 @@
     "type": "movie",
     "title": "Batman v Superman: Dawn of Justice",
     "year": 2016,
-    "finished": "2026-06",
     "rating": 2,
     "cover": "batman-v-superman.jpg"
   },
@@ -163,7 +240,6 @@
     "type": "movie",
     "title": "The Big Lebowski",
     "year": 1998,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "big-lebowski.jpg"
   },
@@ -171,7 +247,6 @@
     "type": "movie",
     "title": "The Cable Guy",
     "year": 1996,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "cable-guy.jpg"
   },
@@ -179,55 +254,27 @@
     "type": "movie",
     "title": "Clerks",
     "year": 1994,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "clerks.jpg"
   },
   {
     "type": "movie",
-    "title": "Austin Powers: International Man of Mystery",
-    "year": 1997,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "austin-powers.jpg"
-  },
-  {
-    "type": "movie",
-    "title": "10 Things I Hate About You",
-    "year": 1999,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "10-things.jpg"
-  },
-  {
-    "type": "movie",
-    "title": "Zack and Miri Make a Porno",
-    "year": 2008,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "zack-and-miri.jpg"
-  },
-  {
-    "type": "movie",
-    "title": "Batman",
-    "year": 1989,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "batman-1989.jpg"
-  },
-  {
-    "type": "movie",
     "title": "Clerks II",
     "year": 2006,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "clerks-ii.jpg"
   },
   {
     "type": "movie",
+    "title": "The Dark Knight",
+    "year": 2008,
+    "rating": 5,
+    "cover": "dark-knight.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Deadpool 2",
     "year": 2018,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "deadpool-2.jpg"
   },
@@ -235,77 +282,206 @@
     "type": "movie",
     "title": "Dumb and Dumber",
     "year": 1994,
-    "finished": "2026-06",
     "rating": 4,
     "cover": "dumb-and-dumber.jpg"
   },
   {
     "type": "movie",
+    "title": "Elf",
+    "year": 2003,
+    "rating": 4,
+    "cover": "elf.jpg"
+  },
+  {
+    "type": "movie",
     "title": "How the Grinch Stole Christmas",
     "year": 2000,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "the-grinch.jpg"
   },
   {
-    "type": "comic",
-    "title": "Teenage Mutant Ninja Turtles Color Classics, Vol. 3",
-    "year": 2014,
-    "finished": "2026-06",
-    "rating": 4
+    "type": "movie",
+    "title": "Jurassic Park",
+    "year": 1993,
+    "rating": 5,
+    "cover": "jurassic-park.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Mars Attacks!",
+    "year": 1996,
+    "rating": 2,
+    "cover": "mars-attacks.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Twins",
+    "year": 1988,
+    "rating": 3,
+    "cover": "twins.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "UHF",
+    "year": 1989,
+    "rating": 4,
+    "cover": "uhf.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Vulgar",
+    "year": 2002,
+    "rating": 5,
+    "cover": "vulgar.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "WALL·E",
+    "year": 2008,
+    "rating": 5,
+    "cover": "wall-e.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Welcome to Macintosh",
+    "year": 2008,
+    "rating": 4,
+    "cover": "welcome-to-macintosh.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "What's Eating Gilbert Grape",
+    "year": 1993,
+    "rating": 4,
+    "cover": "whats-eating-gilbert-grape.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Who Framed Roger Rabbit",
+    "year": 1988,
+    "rating": 5,
+    "cover": "who-framed-roger-rabbit.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Willy Wonka & the Chocolate Factory",
+    "year": 1971,
+    "rating": 5,
+    "cover": "willy-wonka.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Witch",
+    "year": 2016,
+    "rating": 4,
+    "cover": "the-witch.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Zack and Miri Make a Porno",
+    "year": 2008,
+    "rating": 4,
+    "cover": "zack-and-miri.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Zoolander",
+    "year": 2001,
+    "rating": 5,
+    "cover": "zoolander.jpg"
   },
   {
     "type": "comic",
     "title": "Batman: The Killing Joke",
     "artist": "Alan Moore & Brian Bolland",
     "year": 1988,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "killing-joke.jpg"
-  },
-  {
-    "type": "comic",
-    "title": "Confidential Confessions, Vol. 1",
-    "artist": "Reiko Momochi",
-    "year": 2003,
-    "finished": "2026-06",
-    "rating": 4,
-    "cover": "confidential-confessions.jpg"
   },
   {
     "type": "comic",
     "title": "Bone Vol. 2: The Great Cow Race",
     "artist": "Jeff Smith",
     "year": 1995,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "bone-vol-2.jpg"
   },
   {
-    "type": "book",
-    "title": "Console Wars",
-    "artist": "Blake J. Harris",
-    "year": 2014,
-    "finished": "2026-06",
-    "rating": 5,
-    "cover": "console-wars.jpg"
+    "type": "comic",
+    "title": "Confidential Confessions, Vol. 1",
+    "artist": "Reiko Momochi",
+    "year": 2003,
+    "rating": 4,
+    "cover": "confidential-confessions.jpg"
   },
   {
-    "type": "book",
-    "title": "The Long Hard Road Out of Hell",
-    "artist": "Marilyn Manson & Neil Strauss",
-    "year": 1998,
-    "finished": "2026-06",
-    "rating": 5,
-    "cover": "long-hard-road-out-of-hell.jpg"
+    "type": "comic",
+    "title": "Teenage Mutant Ninja Turtles Color Classics, Vol. 3",
+    "year": 2014,
+    "rating": 4
   },
   {
     "type": "book",
     "title": "Aqua and Bondi: The Road to OS X & The Computer That Saved Apple",
     "artist": "Stephen Hackett",
     "year": 2024,
-    "finished": "2026-06",
     "rating": 5,
     "cover": "aqua-and-bondi.png"
+  },
+  {
+    "type": "book",
+    "title": "Console Wars",
+    "artist": "Blake J. Harris",
+    "year": 2014,
+    "rating": 5,
+    "cover": "console-wars.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Creative Selection",
+    "artist": "Ken Kocienda",
+    "year": 2018,
+    "rating": 4,
+    "cover": "creative-selection.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Electric Cars For Dummies",
+    "artist": "Brian Culp",
+    "year": 2022,
+    "rating": 4,
+    "cover": "electric-cars-for-dummies.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Long Hard Road Out of Hell",
+    "artist": "Marilyn Manson & Neil Strauss",
+    "year": 1998,
+    "rating": 5,
+    "cover": "long-hard-road-out-of-hell.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Masters of Doom",
+    "artist": "David Kushner",
+    "year": 2003,
+    "rating": 5,
+    "cover": "masters-of-doom.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Sprite Decade",
+    "artist": "Rodrigo Copetti",
+    "year": 2025,
+    "rating": 5,
+    "cover": "the-sprite-decade.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Steve Jobs",
+    "artist": "Walter Isaacson",
+    "year": 2011,
+    "rating": 5,
+    "cover": "steve-jobs.jpg"
   }
 ]

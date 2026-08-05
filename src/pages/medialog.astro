@@ -9,11 +9,16 @@ interface MediaEntry {
 	title: string;
 	artist?: string;
 	year: number;
-	finished: string; // YYYY-MM, e.g. "2026-06"
 	rating?: number;  // 1–5
 	notes?: string;
 	cover?: string;   // filename in public/medialog/
 }
+
+// Library-style sorting: a leading article is ignored, so "The Batman" files
+// under B and "An Officer…" under O. The title itself still displays in full.
+// The trailing \s+ is load-bearing — it stops the "A" in a title like
+// "A.M G.O.D" (no space after it) from being treated as an article.
+const sortTitle = (title: string) => title.replace(/^(the|an|a)\s+/i, '');
 
 // Auto-picks up new year files without any code changes
 const yearModules = import.meta.glob<{ default: MediaEntry[] }>(
@@ -22,7 +27,14 @@ const yearModules = import.meta.glob<{ default: MediaEntry[] }>(
 );
 const allEntries: MediaEntry[] = Object.values(yearModules)
 	.flatMap((m) => m.default)
-	.sort((a, b) => b.finished.localeCompare(a.finished));
+	// `numeric` keeps "10 Things…" ordering sanely against letters;
+	// `sensitivity: 'base'` makes it case- and accent-insensitive.
+	.sort((a, b) =>
+		sortTitle(a.title).localeCompare(sortTitle(b.title), 'en', {
+			sensitivity: 'base',
+			numeric: true,
+		}),
+	);
 
 const byType = {
 	music: allEntries.filter((e) => e.type === 'music'),
@@ -31,12 +43,6 @@ const byType = {
 	book:  allEntries.filter((e) => e.type === 'book'),
 	comic: allEntries.filter((e) => e.type === 'comic'),
 };
-
-function formatDate(yyyymm: string) {
-	const [y, m] = yyyymm.split('-');
-	const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-	return `${months[parseInt(m) - 1]} ${y}`;
-}
 
 function stars(n: number) {
 	return '★'.repeat(n) + '☆'.repeat(5 - n);
