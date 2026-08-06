@@ -6,7 +6,14 @@
 npm run dev      # dev server at http://localhost:4321
 npm run build    # production build to dist/
 npm run preview  # preview the production build locally
+
+npm run covers            # downscale any oversized medialog cover art, in place
+npm run covers -- --check # report only; exits 1 if any cover needs resizing
 ```
+
+Run `npm run covers` after adding cover art. It is idempotent, so running it when everything is
+already sized is a harmless no-op. It is deliberately **not** wired into `build` — the build runs
+on Cloudflare where mutating tracked files would be pointless.
 
 As of Astro 7, `astro dev` runs as a **detached background daemon** — it prints a pid and
 returns instead of holding the terminal. Manage it with:
@@ -21,9 +28,9 @@ No linter or test suite is configured.
 
 ## Architecture
 
-Astro 7 static site deployed to Cloudflare Pages. Content is authored via Decap CMS (`/admin`),
-by dropping `.md`/`.mdx` files into `src/content/posts/`, or — for the medialog — by editing
-JSON directly.
+Astro 7 static site deployed to Cloudflare Pages. Content is authored by dropping `.md`/`.mdx`
+files into `src/content/posts/`, or — for the medialog — by editing JSON directly. There is no
+CMS and no server-side code of any kind: no Pages Functions, no API routes.
 
 ### Content collections
 
@@ -46,7 +53,14 @@ changes** — drop in e.g. `2027.json` and it is picked up and merged automatica
 
 Each entry: `type` (`tv` | `movie` | `book` | `music` | `comic`), `title`, `artist?`, `year`,
 `rating?` (1–5), `notes?`, `cover?`. `artist` doubles as the author for books and comics.
-`cover` is a bare filename resolved against `public/medialog/`; cover art is ~600px tall JPEG.
+`cover` is a bare filename resolved against `public/medialog/`.
+
+**Cover art must be downscaled to 400px wide before being committed.** Cards render at 125px
+max (85px on mobile), so 400px is already ~3x for retina; anything larger is pure waste. These
+files sit in `public/`, so Astro's image pipeline never touches them — nothing else will shrink
+them for you. Source art from Apple Music / TMDB arrives at 2000–2560px and ~500KB each; left
+alone, 90 entries came to 46MB of eagerly-loaded images. **`npm run covers` does this for you** —
+see `scripts/optimize-covers.mjs`. It took that same set to 3.7MB.
 
 **`year` is the work's release year**, not when it was consumed — there is deliberately no
 "date finished" field. Where a work has more than one candidate year, use the **general/home
@@ -66,6 +80,18 @@ group, library-style:
 
 The JSON file itself is kept grouped by type and sorted by the same rule for readability, but
 that is cosmetic — the page sorts at render time regardless of file order.
+
+Card layout is built so every card in a section is the same height, which keeps the star
+ratings aligned across a grid row as the library grows. Three things do that together, and
+removing any one re-introduces the ragged edge: `.card-title` is clamped to two lines *and*
+carries a matching `min-height` (so a one-line title still occupies two), `.card-sub` is a
+single ellipsised line, and `.card-meta` uses `margin-top: auto` to pin the stars to the
+bottom regardless of what's above them.
+
+Only the first rendered section eager-loads its first 12 covers (`eagerKey` in
+`medialog.astro`); everything else is `loading="lazy"`. That is what keeps the initial payload
+at ~400KB instead of the full ~3.7MB. Note `.cover` already reserves space via `aspect-ratio`,
+so there is no layout shift and no need for `width`/`height` attributes on the `<img>`.
 
 ### Routes → layout wiring
 
@@ -94,17 +120,18 @@ the `fonts` array in `astro.config.mjs` and emitted by the `<Font>` components i
 
 There is no Google Fonts link tag and no `--font-geist`; fonts are self-hosted at build time.
 
-### Decap CMS / auth
-
-`/admin` is a static Decap CMS page (`public/admin/`). GitHub OAuth is handled by a Cloudflare
-Pages Function at `functions/api/auth.js`. Requires two env vars set in the Cloudflare dashboard:
-`GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`. The `base_url` in `public/admin/config.yml` must
-match the deployed Pages URL.
-
 ### Global site metadata
 
 `src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION`, used in `BaseHead.astro` and the
 RSS feed. `BaseHead.astro` also sets the OG/Twitter share image, defaulting to `/favicon.png`.
+
+### Response headers
+
+`public/_headers` is read by Cloudflare Pages at deploy time — it is not an Astro feature and has
+no effect in `astro dev`. It sets the site-wide security headers (`X-Frame-Options: DENY`,
+`nosniff`, `Referrer-Policy`, `Permissions-Policy`) and forces the correct
+`application/rss+xml` content type on `/rss.xml`. Verify changes on a deployed preview, not
+locally.
 
 ### Favicons
 
@@ -122,11 +149,17 @@ To regenerate the SVG after changing the PNG, note that **sharp applies operatio
 internal order, not call order** — `extend` runs before `negate`, so padding added in the same
 pipeline gets inverted. Negate first, then extend a fresh `sharp()` instance.
 
-### Media uploads
+### Media
 
-Decap CMS writes uploaded media to `src/assets/uploads/`, which Astro's image pipeline optimises
-at build time. Medialog cover art is the exception — it lives in `public/medialog/` and is served
-unoptimised.
+All site images live in `public/` and are served as-is — there is no `src/assets/` directory and
+nothing goes through Astro's image pipeline. That is why medialog covers must be downscaled
+before committing; see the Medialog section and `npm run covers`.
+
+There is no CMS. Decap and its Cloudflare Pages OAuth function were removed (they were never
+used here — the admin page still carried another site's title). Posts are authored by dropping
+`.md`/`.mdx` into `src/content/posts/`, the medialog by editing JSON directly. If the Cloudflare
+Pages project still has `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` set, they are dead and can be
+deleted, along with the GitHub OAuth app that backed them.
 
 ## Gotchas
 
