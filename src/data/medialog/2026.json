@@ -9,11 +9,107 @@
   },
   {
     "type": "music",
+    "title": "Abbath",
+    "artist": "Abbath",
+    "year": 2016,
+    "rating": 4,
+    "cover": "abbath.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Abbey Road",
+    "artist": "The Beatles",
+    "year": 1969,
+    "rating": 5,
+    "cover": "abbey-road.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Abigail",
+    "artist": "King Diamond",
+    "year": 1987,
+    "rating": 4,
+    "cover": "king-diamond-abigail.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Abigail II: The Revenge",
+    "artist": "King Diamond",
+    "year": 2002,
+    "rating": 4,
+    "cover": "king-diamond-abigail-ii.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Above",
     "artist": "Code Orange",
     "year": 2023,
     "rating": 5,
     "cover": "code-orange-the-above.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Absolute Elsewhere",
+    "artist": "Blood Incantation",
+    "year": 2024,
+    "rating": 5,
+    "cover": "absolute-elsewhere.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Absolvere",
+    "artist": "Signs of the Swarm",
+    "year": 2021,
+    "rating": 4,
+    "cover": "absolvere.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Abuse",
+    "artist": "Wormrot",
+    "year": 2009,
+    "rating": 4,
+    "cover": "wormrot-abuse.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The Accuser",
+    "artist": "Abigail Williams",
+    "year": 2015,
+    "rating": 4,
+    "cover": "abigail-williams-the-accuser.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Ace of Spades",
+    "artist": "Motörhead",
+    "year": 1980,
+    "rating": 4,
+    "cover": "ace-of-spades.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Across the Dark",
+    "artist": "Insomnium",
+    "year": 2009,
+    "rating": 4,
+    "cover": "across-the-dark.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Ad Noctum: Dynasty of Death",
+    "artist": "Limbonic Art",
+    "year": 1999,
+    "rating": 4,
+    "cover": "ad-noctum.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Addicts: Black Meddle Pt. II",
+    "artist": "Nachtmystium",
+    "year": 2010,
+    "rating": 4,
+    "cover": "addicts.jpg"
   },
   {
     "type": "music",
@@ -119,6 +215,13 @@
   },
   {
     "type": "tv",
+    "title": "Breaking Bad",
+    "year": 2008,
+    "rating": 5,
+    "cover": "breaking-bad.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Check It Out! with Dr. Steve Brule",
     "year": 2010,
     "rating": 5,
@@ -133,6 +236,34 @@
   },
   {
     "type": "tv",
+    "title": "Dexter",
+    "year": 2006,
+    "rating": 4,
+    "cover": "dexter.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Dilbert",
+    "year": 1999,
+    "rating": 4,
+    "cover": "dilbert.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Dinosaurs",
+    "year": 1991,
+    "rating": 4,
+    "cover": "dinosaurs.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The Drew Carey Show",
+    "year": 1995,
+    "rating": 4,
+    "cover": "drew-carey-show.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Friends",
     "year": 1994,
     "rating": 4,
@@ -140,10 +271,31 @@
   },
   {
     "type": "tv",
+    "title": "Futurama",
+    "year": 1999,
+    "rating": 5,
+    "cover": "futurama.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Harvey Birdman, Attorney at Law",
     "year": 2000,
     "rating": 4,
     "cover": "harvey-birdman.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The Increasingly Poor Decisions of Todd Margaret",
+    "year": 2010,
+    "rating": 4,
+    "cover": "todd-margaret.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The IT Crowd",
+    "year": 2006,
+    "rating": 5,
+    "cover": "it-crowd.jpg"
   },
   {
     "type": "tv",
@@ -161,10 +313,38 @@
   },
   {
     "type": "tv",
+    "title": "Mr. Bean",
+    "year": 1990,
+    "rating": 4,
+    "cover": "mr-bean.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Mr. Show with Bob and David",
+    "year": 1995,
+    "rating": 4,
+    "cover": "mr-show.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The Muppets",
+    "year": 2015,
+    "rating": 4,
+    "cover": "the-muppets.jpg"
+  },
+  {
+    "type": "tv",
     "title": "The Oblongs",
     "year": 2001,
     "rating": 5,
     "cover": "the-oblongs.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Tenacious D",
+    "year": 1997,
+    "rating": 4,
+    "cover": "tenacious-d.jpg"
   },
   {
     "type": "tv",
@@ -392,6 +572,14 @@
   },
   {
     "type": "comic",
+    "title": "The Authoritative Calvin and Hobbes",
+    "artist": "Bill Watterson",
+    "year": 1990,
+    "rating": 5,
+    "cover": "authoritative-calvin-and-hobbes.jpg"
+  },
+  {
+    "type": "comic",
     "title": "Batman: The Killing Joke",
     "artist": "Alan Moore & Brian Bolland",
     "year": 1988,
@@ -413,6 +601,22 @@
     "year": 2003,
     "rating": 4,
     "cover": "confidential-confessions.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "The Essential Calvin and Hobbes",
+    "artist": "Bill Watterson",
+    "year": 1988,
+    "rating": 5,
+    "cover": "essential-calvin-and-hobbes.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "The Indispensable Calvin and Hobbes",
+    "artist": "Bill Watterson",
+    "year": 1992,
+    "rating": 5,
+    "cover": "indispensable-calvin-and-hobbes.jpg"
   },
   {
     "type": "comic",
