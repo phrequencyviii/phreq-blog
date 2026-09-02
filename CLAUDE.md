@@ -29,8 +29,10 @@ No linter or test suite is configured.
 ## Architecture
 
 Astro 7 static site deployed to Cloudflare Pages. Content is authored by dropping `.md`/`.mdx`
-files into `src/content/posts/`, or — for the medialog — by editing JSON directly. There is no
-CMS and no server-side code of any kind: no Pages Functions, no API routes.
+files into `src/content/posts/`, editing JSON directly for the medialog, or through the Sveltia
+CMS at `/admin` for posts and microposts. The only server-side code is `functions/auth.js`, a
+single Cloudflare Pages Function needed for the CMS's GitHub OAuth login — see CMS (Sveltia)
+below. Nothing else here runs server-side: no other Pages Functions, no API routes.
 
 ### Content collections
 
@@ -39,6 +41,12 @@ Defined in `src/content.config.ts`.
 Files live in `src/content/posts/`. The directory is currently empty (kept by `.gitkeep`), so
 `getCollection('posts')` returns `[]` and the build logs a harmless "collection is empty" notice
 on `/blog`, `/rss.xml`, and during route generation. That notice disappears once a post is added.
+
+`heroImage` is a plain `z.string().optional()` — a path under `public/` (e.g. `/blog/foo.jpg`),
+rendered with a bare `<img>` in `BlogPost.astro` and `blog/index.astro`. It deliberately does not
+use Astro's `image()` schema helper: nothing else on this site goes through Astro's image
+pipeline (see Media below), and `image()` needs a Vite-resolvable relative import, which doesn't
+match how the Sveltia CMS's media widget writes plain public-folder paths.
 
 Earlier `links` and `photos` collections were removed along with their pages and layouts; don't
 reintroduce them without also adding routes.
@@ -131,11 +139,33 @@ All site images live in `public/` and are served as-is — there is no `src/asse
 nothing goes through Astro's image pipeline. That is why medialog covers must be downscaled
 before committing; see the Medialog section and `npm run covers`.
 
-There is no CMS. Decap and its Cloudflare Pages OAuth function were removed (they were never
-used here — the admin page still carried another site's title). Posts are authored by dropping
-`.md`/`.mdx` into `src/content/posts/`, the medialog by editing JSON directly. If the Cloudflare
-Pages project still has `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` set, they are dead and can be
-deleted, along with the GitHub OAuth app that backed them.
+### CMS (Sveltia)
+
+`/admin` is [Sveltia CMS](https://github.com/sveltia/sveltia-cms), loaded from a CDN script in
+`public/admin/index.html`; its config lives in `public/admin/config.yml`. It edits posts and
+microposts only — see "Medialog and the CMS" below for why the medialog isn't wired in.
+
+Two collections both point at `src/content/posts/` and are split by the schema's `type` field
+using Decap-style `filter` (`{ field: type, value: post }` / `{ field: type, value: micro }`),
+with `type` itself set via a hidden field default. This is the same one-folder-two-shapes split
+`content.config.ts`'s zod `.refine()` enforces at build time.
+
+Auth is a self-hosted, Decap/Netlify-compatible GitHub OAuth flow — `config.yml` sets
+`base_url: https://phreq.blog` and `auth_endpoint: auth`, and `functions/auth.js` is the single
+Cloudflare Pages Function that handles it: no `code` param means "start the flow" (redirect to
+GitHub), a `code` param means "GitHub just called back" (exchange it for a token, hand it to the
+CMS popup via `postMessage`). It needs `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` set in the
+Cloudflare Pages project's environment variables, matching a GitHub OAuth App whose callback URL
+is `https://phreq.blog/auth`.
+
+CMS-uploaded images go to `public/blog/` (`media_folder`/`public_folder` in `config.yml`), which
+is why `heroImage` had to stop using Astro's `image()` helper — see Content collections above.
+
+**Medialog and the CMS.** Each `src/data/medialog/*.json` file is a flat array of many entries,
+not one-file-per-entry — the shape Decap-style "folder"/"files" collections expect. Sveltia has
+no top-level-array field type, so the medialog isn't editable from `/admin` without restructuring
+that data (e.g. wrapping each year's array as `{ entries: [...] }`), which hasn't been done. Until
+then, keep editing `src/data/medialog/*.json` directly.
 
 ## Gotchas
 

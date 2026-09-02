@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: phrequencyviii/phreq-blog
+  branch: main
+  base_url: https://phreq.blog
+  auth_endpoint: auth
+
+media_folder: public/blog
+public_folder: /blog
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/posts
+    create: true
+    slug: '{{slug}}'
+    filter: { field: type, value: post }
+    fields:
+      - { label: Type, name: type, widget: hidden, default: post }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Last Updated, name: updatedDate, widget: datetime, required: false }
+      - { label: Hero Image, name: heroImage, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: microposts
+    label: Microposts
+    label_singular: Micropost
+    folder: src/content/posts
+    create: true
+    slug: 'micro-{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}'
+    filter: { field: type, value: micro }
+    fields:
+      - { label: Type, name: type, widget: hidden, default: micro }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Body, name: body, widget: markdown }

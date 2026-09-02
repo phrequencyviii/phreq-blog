@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
@@ -127,12 +126,13 @@ const posts = await Promise.all(
 								<li>
 									<a href={`/blog/${post.id}/`}>
 										{post.data.heroImage && (
-											<Image
+											<img
 												class="thumb"
-												width={200}
-												height={140}
+												width="200"
+												height="140"
 												src={post.data.heroImage}
 												alt=""
+												loading="lazy"
 											/>
 										)}
 										<div class="info">

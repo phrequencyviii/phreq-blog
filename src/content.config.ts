@@ -4,7 +4,7 @@ import { z } from 'astro/zod';
 
 const posts = defineCollection({
 	loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
-	schema: ({ image }) =>
+	schema: () =>
 		z
 			.object({
 				// 'post' is a full article and requires a title; 'micro' is a
@@ -14,7 +14,9 @@ const posts = defineCollection({
 				description: z.string().optional(),
 				pubDate: z.coerce.date(),
 				updatedDate: z.coerce.date().optional(),
-				heroImage: z.optional(image()),
+				// A path under public/, like every other image on this site —
+				// not Astro's image() pipeline, which nothing else here uses.
+				heroImage: z.string().optional(),
 			})
 			.refine((data) => data.type !== 'post' || !!data.title, {
 				message: 'title is required when type is "post"',
