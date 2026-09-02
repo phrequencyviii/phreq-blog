@@ -172,6 +172,11 @@ then, keep editing `src/data/medialog/*.json` directly.
 - **Stale caches.** If dev throws something that doesn't match your source (the classic is
   `No script at index 0` from `vite-plugin-astro`), delete `.astro/`, `node_modules/.astro/`,
   and `node_modules/.vite/`, then restart. This is almost always the cause.
+- **Don't delete `.astro/` while `astro dev` is still running.** A running dev server keeps its
+  content-collection sync state there; wiping it out from under a live server (e.g. a `rm -rf
+  .astro` cleanup after a build, done without stopping dev first) makes it report a real,
+  populated collection as `does not exist or is empty` until the server is stopped and restarted.
+  The content on disk is fine — it's purely a stale in-memory sync issue.
 - **`/sitemap-index.xml` 404s in dev.** `@astrojs/sitemap` only runs during `astro build`;
   check it in `dist/` instead.
 - **Astro 7 uses a Rust compiler** that is strict about unclosed tags and does not silently
