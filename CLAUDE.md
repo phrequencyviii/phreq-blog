@@ -34,9 +34,7 @@ CMS and no server-side code of any kind: no Pages Functions, no API routes.
 
 ### Content collections
 
-Defined in `src/content.config.ts`. One collection:
-
-- **posts** — blog articles. Fields: `title`, `description?`, `pubDate`, `updatedDate?`, `heroImage?`
+Defined in `src/content.config.ts`.
 
 Files live in `src/content/posts/`. The directory is currently empty (kept by `.gitkeep`), so
 `getCollection('posts')` returns `[]` and the build logs a harmless "collection is empty" notice
@@ -50,10 +48,6 @@ reintroduce them without also adding routes.
 `/medialog` is not a content collection. It reads JSON straight from `src/data/medialog/*.json`
 via `import.meta.glob(..., { eager: true })`, so **adding a new year file requires no code
 changes** — drop in e.g. `2027.json` and it is picked up and merged automatically.
-
-Each entry: `type` (`tv` | `movie` | `book` | `music` | `comic`), `title`, `artist?`, `year`,
-`rating?` (1–5), `notes?`, `cover?`. `artist` doubles as the author for books and comics.
-`cover` is a bare filename resolved against `public/medialog/`.
 
 **Cover art must be downscaled to 400px wide before being committed.** Cards render at 125px
 max (85px on mobile), so 400px is already ~3x for retina; anything larger is pure waste. These
@@ -93,19 +87,6 @@ Only the first rendered section eager-loads its first 12 covers (`eagerKey` in
 at ~400KB instead of the full ~3.7MB. Note `.cover` already reserves space via `aspect-ratio`,
 so there is no layout shift and no need for `width`/`height` attributes on the `<img>`.
 
-### Routes → layout wiring
-
-| Route | Layout |
-|---|---|
-| `/` | none — standalone splash page showing `public/logo.webp` |
-| `/blog` | none — index listing the `posts` collection |
-| `/blog/[...slug]` | `BlogPost.astro` |
-| `/about` | `BlogPost.astro` |
-| `/medialog` | none — self-contained, reads `src/data/medialog/` |
-| `/rss.xml` | `@astrojs/rss`, fed by the `posts` collection |
-
-`BlogPost.astro` is the only layout.
-
 ### Styling
 
 Single global stylesheet at `src/styles/global.css`, imported once via `BaseHead.astro`.
@@ -119,11 +100,6 @@ the `fonts` array in `astro.config.mjs` and emitted by the `<Font>` components i
 - `--font-mono` — IBM Plex Mono
 
 There is no Google Fonts link tag and no `--font-geist`; fonts are self-hosted at build time.
-
-### Global site metadata
-
-`src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION`, used in `BaseHead.astro` and the
-RSS feed. `BaseHead.astro` also sets the OG/Twitter share image, defaulting to `/favicon.png`.
 
 ### Response headers
 
