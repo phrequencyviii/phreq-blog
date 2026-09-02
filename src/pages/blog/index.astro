@@ -1,14 +1,23 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('posts')).sort(
+const sorted = (await getCollection('posts')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// Microposts render their body inline in the feed (there's no title to
+// link off of), so render them up front rather than per-item in the loop.
+const posts = await Promise.all(
+	sorted.map(async (post) => ({
+		post,
+		Content: post.data.type === 'micro' ? (await render(post)).Content : null,
+	})),
 );
 ---
 
@@ -28,7 +37,7 @@ const posts = (await getCollection('posts')).sort(
 				flex-direction: column;
 				gap: 1.5rem;
 			}
-			ul li a {
+			ul li a:not(.micro) {
 				display: flex;
 				gap: 1rem;
 				align-items: flex-start;
@@ -65,6 +74,34 @@ const posts = (await getCollection('posts')).sort(
 				color: rgb(var(--gray));
 				font-size: 0.85em;
 			}
+			.micro {
+				display: block;
+				padding: 0.9em 1em;
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				text-decoration: none;
+			}
+			.micro:hover {
+				border-color: var(--accent);
+			}
+			.micro .date {
+				font-family: var(--font-mono);
+				font-size: 0.72em;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+				margin-bottom: 0.5em;
+			}
+			.micro .micro-body {
+				color: rgb(var(--black));
+				font-size: 1em;
+				line-height: 1.5;
+			}
+			.micro .micro-body :global(p) {
+				margin: 0 0 0.6em;
+			}
+			.micro .micro-body :global(p:last-child) {
+				margin-bottom: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -74,30 +111,43 @@ const posts = (await getCollection('posts')).sort(
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image
-											class="thumb"
-											width={200}
-											height={140}
-											src={post.data.heroImage}
-											alt=""
-										/>
-									)}
-									<div class="info">
-										<h4 class="title">{post.data.title}</h4>
-										{post.data.description && (
-											<p class="description">{post.data.description}</p>
-										)}
+						posts.map(({ post, Content }) =>
+							post.data.type === 'micro' ? (
+								<li>
+									<a class="micro" href={`/blog/${post.id}/`}>
 										<p class="date">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
-									</div>
-								</a>
-							</li>
-						))
+										<div class="micro-body">
+											<Content />
+										</div>
+									</a>
+								</li>
+							) : (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image
+												class="thumb"
+												width={200}
+												height={140}
+												src={post.data.heroImage}
+												alt=""
+											/>
+										)}
+										<div class="info">
+											<h4 class="title">{post.data.title}</h4>
+											{post.data.description && (
+												<p class="description">{post.data.description}</p>
+											)}
+											<p class="date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+										</div>
+									</a>
+								</li>
+							),
+						)
 					}
 				</ul>
 			</section>

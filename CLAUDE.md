@@ -171,3 +171,9 @@ deleted, along with the GitHub OAuth app that backed them.
 - **Astro 7 uses a Rust compiler** that is strict about unclosed tags and does not silently
   fix invalid HTML nesting (e.g. a `<div>` inside a `<p>`). Malformed markup that previously
   built will now error or render differently.
+- **`pubDate` and time zones.** `z.coerce.date()` parses a date-only string (`2026-09-01`) as
+  UTC midnight, but a date-*time* string with no offset (`2026-09-01T21:00:00`) as local time
+  on whatever machine does the parsing — dev (your machine) and the Cloudflare build (UTC)
+  will disagree, and the displayed date can shift by a day between them. `FormattedDate`
+  renders in UTC, so plain date-only frontmatter is always safe; if you add a time, always
+  append `Z` (or an explicit offset).

@@ -8,10 +8,13 @@ export async function GET(context) {
 	const items = posts
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 		.map((p) => ({
-			title: p.data.title,
+			// Microposts have no title — fall back to the raw body (feed
+			// readers show this as the item's label when there's no title).
+			title: p.data.title ?? p.body?.replace(/\s+/g, ' ').trim(),
 			description: p.data.description,
 			pubDate: p.data.pubDate,
 			link: `/blog/${p.id}/`,
+			categories: [p.data.type],
 		}));
 
 	return rss({
