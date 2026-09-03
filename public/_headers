@@ -3,7 +3,25 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  X-XSS-Protection: 1; mode=block
 
 /rss.xml
   Content-Type: application/rss+xml; charset=utf-8
+
+# CSP is scoped to the known public routes only, not /admin. Sveltia CMS
+# pulls its editor from unpkg.com and talks to GitHub's API/avatar/raw
+# domains at runtime, and that's a moving target we don't track here — safer
+# to leave /admin with no CSP (unchanged from before) than ship one that's
+# wrong and breaks the CMS, or risk two rules matching the same request.
+# `/about*`/`/blog*`/`/medialog*` (no slash before the splat) match both the
+# bare path and everything nested under it in one line.
+/
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+
+/about*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+
+/blog*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+
+/medialog*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
