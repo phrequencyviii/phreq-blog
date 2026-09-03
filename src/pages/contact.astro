@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+
+// Public site key — not secret, but kept out of source so nothing has to
+// change here once a real one is set in Cloudflare's env vars. Renders no
+// widget (and the form fails closed server-side) until it's configured.
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+<Layout title="Contact" description="Get in touch with phreq">
+	<p>
+		Have something to say? Send a message below — I read everything, and I'll reply from my own
+		inbox once I do.
+	</p>
+
+	<form id="contact-form" novalidate>
+		<div class="field">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required maxlength="100" autocomplete="name" />
+		</div>
+		<div class="field">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required maxlength="200" autocomplete="email" />
+		</div>
+		<div class="field">
+			<label for="message">Message</label>
+			<textarea id="message" name="message" required maxlength="5000" rows="6"></textarea>
+		</div>
+
+		<!-- Honeypot: hidden from sighted and screen-reader users alike, left for bots to fill in. -->
+		<div class="hp-field" aria-hidden="true">
+			<label for="website">Leave this field blank</label>
+			<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+		</div>
+
+		{turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
+
+		<button type="submit">Send</button>
+		<p class="status" role="status" aria-live="polite"></p>
+	</form>
+</Layout>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+	const form = document.getElementById('contact-form');
+	const status = form.querySelector('.status');
+	const button = form.querySelector('button[type="submit"]');
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		status.textContent = '';
+		button.disabled = true;
+
+		const payload = {
+			name: form.name.value.trim(),
+			email: form.email.value.trim(),
+			message: form.message.value.trim(),
+			website: form.website.value,
+			turnstileToken: form.querySelector('[name="cf-turnstile-response"]')?.value ?? '',
+		};
+
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+			const result = await res.json().catch(() => ({}));
+
+			if (res.ok) {
+				status.textContent = "Thanks — your message is on its way. I'll get back to you soon.";
+				form.reset();
+				window.turnstile?.reset();
+			} else {
+				status.textContent = result.error || 'Something went wrong. Please try again.';
+				window.turnstile?.reset();
+			}
+		} catch {
+			status.textContent = 'Something went wrong. Please check your connection and try again.';
+		} finally {
+			button.disabled = false;
+		}
+	});
+</script>
+
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25em;
+		margin-top: 2em;
+	}
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+	label {
+		font-family: var(--font-mono);
+		font-size: 0.72em;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	input,
+	textarea {
+		font-family: var(--font-inter);
+		padding: 0.6em 0.75em;
+		border: 1px solid var(--border);
+		border-radius: 2px;
+		background: var(--bg);
+		color: rgb(var(--black));
+	}
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+	}
+	textarea {
+		resize: vertical;
+	}
+	.hp-field {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	button {
+		align-self: flex-start;
+		font-family: var(--font-mono);
+		font-size: 0.8em;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		padding: 0.7em 1.5em;
+		border: 1px solid rgb(var(--black));
+		border-radius: 2px;
+		background: transparent;
+		color: rgb(var(--black));
+		cursor: pointer;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+	button:hover:not(:disabled) {
+		background: rgb(var(--black));
+		color: var(--bg);
+	}
+	button:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+	.status {
+		font-size: 0.9em;
+		color: rgb(var(--gray-dark));
+		min-height: 1.4em;
+	}
+</style>

@@ -30,9 +30,10 @@ No linter or test suite is configured.
 
 Astro 7 static site deployed to Cloudflare Pages. Content is authored by dropping `.md`/`.mdx`
 files into `src/content/posts/`, editing JSON directly for the medialog, or through the Sveltia
-CMS at `/admin` for posts and microposts. The only server-side code is `functions/auth.js`, a
-single Cloudflare Pages Function needed for the CMS's GitHub OAuth login — see CMS (Sveltia)
-below. Nothing else here runs server-side: no other Pages Functions, no API routes.
+CMS at `/admin` for posts and microposts. Server-side code is two Cloudflare Pages Functions:
+`functions/auth.js` for the CMS's GitHub OAuth login (see CMS (Sveltia) below) and
+`functions/api/contact.js` for the contact form (see Contact form below). Nothing else here runs
+server-side — Astro itself outputs a fully static site, no adapter, no other routes.
 
 ### Content collections
 
@@ -166,6 +167,37 @@ not one-file-per-entry — the shape Decap-style "folder"/"files" collections ex
 no top-level-array field type, so the medialog isn't editable from `/admin` without restructuring
 that data (e.g. wrapping each year's array as `{ entries: [...] }`), which hasn't been done. Until
 then, keep editing `src/data/medialog/*.json` directly.
+
+### Contact form
+
+`/contact` (`src/pages/contact.astro`) posts to `/api/contact` (`functions/api/contact.js`), a
+second Cloudflare Pages Function. It's deliberately at `/api/contact` rather than `/contact`
+itself — a Function and a static Astro page at the same path would leave Pages to arbitrate which
+one serves a GET, so the form and the endpoint just don't share a route.
+
+Spam defense is layered: a hidden `website` field is a honeypot (real visitors never see or fill
+it; a filled one gets a fake-success response with no email sent, so bots get no signal to adapt
+against), and Cloudflare Turnstile gates everything else, verified server-side against
+`https://challenges.cloudflare.com/turnstile/v0/siteverify` — the client-side widget alone proves
+nothing. Mail goes out through Resend's API rather than hand-built SMTP/MIME, which is what makes
+this immune to header injection: there's no raw header string for a crafted name/email to break
+out of.
+
+Needs three Cloudflare Pages environment variables to work: `TURNSTILE_SECRET_KEY`,
+`RESEND_API_KEY`, and `CONTACT_TO_EMAIL` (kept as an env var rather than hardcoded specifically so
+the address isn't sitting in source — the whole point of routing contact through a form instead of
+a `mailto:` link). `CONTACT_FROM_EMAIL` is the Resend-verified sending address (e.g. `Contact Form
+<contact@phreq.blog>`); it isn't secret but lives in an env var anyway so it can change without a
+redeploy. The client-side Turnstile site key is `PUBLIC_TURNSTILE_SITE_KEY` — an Astro `PUBLIC_`
+env var, inlined into the static HTML at build time, so it must also be set wherever the site is
+built (Cloudflare's build environment variables, not just the Pages Function's runtime ones).
+Until `PUBLIC_TURNSTILE_SITE_KEY` is set, the page renders without a Turnstile widget and the
+Function fails closed (no token, so no verification, so no mail) rather than silently skipping the
+check.
+
+`/contact*` carries its own `Content-Security-Policy` line in `public/_headers`, relaxed just
+enough (`script-src`/`connect-src`/`frame-src` add `https://challenges.cloudflare.com`) for
+Turnstile's script and challenge iframe to load — every other route stays on the strict default.
 
 ## Gotchas
 
