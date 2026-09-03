@@ -74,26 +74,49 @@ const posts = await Promise.all(
 				font-size: 0.85em;
 			}
 			.micro {
+				position: relative;
 				display: block;
 				padding: 0.9em 1em;
 				border: 1px solid var(--border);
 				border-radius: 8px;
-				text-decoration: none;
 			}
 			.micro:hover {
 				border-color: var(--accent);
 			}
 			.micro .date {
+				margin: 0 0 0.5em;
 				font-family: var(--font-mono);
 				font-size: 0.72em;
 				letter-spacing: 0.06em;
 				text-transform: uppercase;
-				margin-bottom: 0.5em;
+			}
+			.micro .permalink {
+				color: inherit;
+				text-decoration: none;
+			}
+			/* Stretches the timestamp link to cover the whole card (the
+			   "stretched link" pattern), so the card stays fully clickable
+			   without wrapping the rendered body — which can contain its
+			   own links — inside another <a>. */
+			.micro .permalink::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				z-index: 1;
 			}
 			.micro .micro-body {
 				color: rgb(var(--black));
 				font-size: 1em;
 				line-height: 1.5;
+			}
+			/* Only real links inside the body get lifted above the
+			   stretched permalink overlay — the surrounding plain text
+			   stays static (below it) so the rest of the card still
+			   navigates to the permalink when clicked. */
+			.micro .micro-body :global(a) {
+				position: relative;
+				z-index: 2;
+				color: var(--link-color);
 			}
 			.micro .micro-body :global(p) {
 				margin: 0 0 0.6em;
@@ -106,21 +129,21 @@ const posts = await Promise.all(
 	<body>
 		<Header />
 		<main>
-			<h1>Posts</h1>
+			<h1 class="sr-only">Posts</h1>
 			<section>
 				<ul>
 					{
 						posts.map(({ post, Content }) =>
 							post.data.type === 'micro' ? (
-								<li>
-									<a class="micro" href={`/blog/${post.id}/`}>
-										<p class="date">
+								<li class="micro">
+									<p class="date">
+										<a class="permalink" href={`/blog/${post.id}/`}>
 											<FormattedDate date={post.data.pubDate} />
-										</p>
-										<div class="micro-body">
-											<Content />
-										</div>
-									</a>
+										</a>
+									</p>
+									<div class="micro-body">
+										<Content />
+									</div>
 								</li>
 							) : (
 								<li>
