@@ -123,6 +123,17 @@ const posts = await Promise.all(
 			.micro .micro-body :global(p:last-child) {
 				margin-bottom: 0;
 			}
+			.tags {
+				margin-top: 0.5em;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6em;
+			}
+			.tag {
+				font-family: var(--font-mono);
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+			}
 		</style>
 	</head>
 	<body>
@@ -143,6 +154,13 @@ const posts = await Promise.all(
 									<div class="micro-body">
 										<Content />
 									</div>
+									{post.data.tags && post.data.tags.length > 0 && (
+										<div class="tags">
+											{post.data.tags.map((tag) => (
+												<span class="tag">#{tag}</span>
+											))}
+										</div>
+									)}
 								</li>
 							) : (
 								<li>
@@ -165,6 +183,13 @@ const posts = await Promise.all(
 											<p class="date">
 												<FormattedDate date={post.data.pubDate} />
 											</p>
+											{post.data.tags && post.data.tags.length > 0 && (
+												<div class="tags">
+													{post.data.tags.map((tag) => (
+														<span class="tag">#{tag}</span>
+													))}
+												</div>
+											)}
 										</div>
 									</a>
 								</li>

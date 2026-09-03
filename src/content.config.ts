@@ -17,6 +17,10 @@ const posts = defineCollection({
 				// A path under public/, like every other image on this site —
 				// not Astro's image() pipeline, which nothing else here uses.
 				heroImage: z.string().optional(),
+				// Plain words, no leading '#' -- templates add that when
+				// rendering. Display-only for now: no per-tag archive/filter
+				// pages yet.
+				tags: z.array(z.string()).optional(),
 			})
 			.refine((data) => data.type !== 'post' || !!data.title, {
 				message: 'title is required when type is "post"',

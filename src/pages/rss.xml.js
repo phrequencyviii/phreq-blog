@@ -14,7 +14,7 @@ export async function GET(context) {
 			description: p.data.description,
 			pubDate: p.data.pubDate,
 			link: `/blog/${p.id}/`,
-			categories: [p.data.type],
+			categories: [p.data.type, ...(p.data.tags ?? [])],
 		}));
 
 	return rss({

@@ -11,7 +11,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 // faking a publish date just to satisfy the type.
 type Props = Omit<CollectionEntry<'posts'>['data'], 'pubDate'> & { pubDate?: Date };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -61,6 +61,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin-top: 0.25em;
 				color: rgb(var(--gray));
 			}
+			.tags {
+				margin-top: 0.75em;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6em;
+			}
+			.tag {
+				font-family: var(--font-mono);
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+			}
 		</style>
 	</head>
 	<body>
@@ -85,6 +96,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							)
 						}
 						{title && <h1>{title}</h1>}
+						{
+							tags && tags.length > 0 && (
+								<div class="tags">
+									{tags.map((tag) => (
+										<span class="tag">#{tag}</span>
+									))}
+								</div>
+							)
+						}
 					</div>
 					<slot />
 				</div>

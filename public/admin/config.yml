@@ -23,6 +23,7 @@ collections:
       - { label: Publish Date, name: pubDate, widget: datetime }
       - { label: Last Updated, name: updatedDate, widget: datetime, required: false }
       - { label: Hero Image, name: heroImage, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false }
       - { label: Body, name: body, widget: markdown }
 
   - name: microposts
@@ -35,4 +36,5 @@ collections:
     fields:
       - { label: Type, name: type, widget: hidden, default: micro }
       - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Tags, name: tags, widget: list, required: false }
       - { label: Body, name: body, widget: markdown }
