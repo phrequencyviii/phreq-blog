@@ -28,6 +28,9 @@
 
 # Contact form needs Turnstile's script and challenge iframe, both served
 # from challenges.cloudflare.com — everything else stays as locked down as
-# the other routes above.
+# the other routes above. Turnstile's loader also injects two small inline
+# bootstrap scripts; script-src allowlists them by hash (found via the CSP
+# violation reports Turnstile logs to the console when they're blocked)
+# rather than opening script-src up with 'unsafe-inline'.
 /contact*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com 'sha256-uYLDSe5NTGaXqi19GwEI9sHZ4YBpchBZpKzComnz/K4=' 'sha256-CSFUre8nxnj6NHRQniGaYa3yBjQYPr11rUN96ps+3ZQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'

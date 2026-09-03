@@ -198,6 +198,11 @@ check.
 `/contact*` carries its own `Content-Security-Policy` line in `public/_headers`, relaxed just
 enough (`script-src`/`connect-src`/`frame-src` add `https://challenges.cloudflare.com`) for
 Turnstile's script and challenge iframe to load — every other route stays on the strict default.
+Turnstile's loader also injects two small inline bootstrap scripts, which `script-src` allowlists
+by `sha256-` hash (pulled from the CSP violation Turnstile logs to the console when they're
+blocked) rather than adding `'unsafe-inline'`. **`_headers` has no effect in `astro dev`** (see
+Gotchas), so a CSP break here only ever shows up against a real Cloudflare deployment — this one
+did, and cost a redeploy to catch.
 
 ## Gotchas
 
