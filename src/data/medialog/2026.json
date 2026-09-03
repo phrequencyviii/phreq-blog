@@ -383,6 +383,62 @@
   },
   {
     "type": "movie",
+    "title": "Alien vs. Predator",
+    "year": 2004,
+    "rating": 2,
+    "cover": "alien-vs-predator.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Aliens",
+    "year": 1986,
+    "rating": 5,
+    "cover": "aliens.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Aliens vs. Predator: Requiem",
+    "year": 2007,
+    "rating": 1,
+    "cover": "aliens-vs-predator-requiem.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Amadeus (Theatrical Cut)",
+    "year": 1984,
+    "rating": 4,
+    "cover": "amadeus.png"
+  },
+  {
+    "type": "movie",
+    "title": "American Psycho",
+    "year": 2000,
+    "rating": 5,
+    "cover": "american-psycho.png"
+  },
+  {
+    "type": "movie",
+    "title": "Angry Video Game Nerd: The Movie",
+    "year": 2014,
+    "rating": 3,
+    "cover": "angry-video-game-nerd.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Aristocats",
+    "year": 1970,
+    "rating": 4,
+    "cover": "aristocats.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Army of Darkness",
+    "year": 1992,
+    "rating": 5,
+    "cover": "army-of-darkness.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Austin Powers in Goldmember",
     "year": 2002,
     "rating": 2,
@@ -394,6 +450,27 @@
     "year": 1997,
     "rating": 4,
     "cover": "austin-powers.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Austin Powers: The Spy Who Shagged Me",
+    "year": 1999,
+    "rating": 5,
+    "cover": "austin-powers-spy-who-shagged-me.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Avengers",
+    "year": 2012,
+    "rating": 5,
+    "cover": "avengers.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Avengers: Endgame",
+    "year": 2019,
+    "rating": 5,
+    "cover": "avengers-endgame.jpg"
   },
   {
     "type": "movie",
@@ -411,10 +488,31 @@
   },
   {
     "type": "movie",
+    "title": "Batman Forever",
+    "year": 1995,
+    "rating": 1,
+    "cover": "batman-forever.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Batman Returns",
+    "year": 1992,
+    "rating": 5,
+    "cover": "batman-returns.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Batman v Superman: Dawn of Justice",
     "year": 2016,
     "rating": 2,
     "cover": "batman-v-superman.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Batman: Under the Red Hood",
+    "year": 2010,
+    "rating": 5,
+    "cover": "batman-under-the-red-hood.jpg"
   },
   {
     "type": "movie",
@@ -425,6 +523,27 @@
   },
   {
     "type": "movie",
+    "title": "Beauty and the Beast",
+    "year": 1991,
+    "rating": 5,
+    "cover": "beauty-and-the-beast.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Beavis and Butt-Head Do America",
+    "year": 1996,
+    "rating": 4,
+    "cover": "beavis-and-butthead-do-america.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Beetlejuice",
+    "year": 1988,
+    "rating": 5,
+    "cover": "beetlejuice.jpg"
+  },
+  {
+    "type": "movie",
     "title": "The Big Lebowski",
     "year": 1998,
     "rating": 5,
@@ -432,10 +551,31 @@
   },
   {
     "type": "movie",
+    "title": "Birdman or (The Unexpected Virtue of Ignorance)",
+    "year": 2014,
+    "rating": 4,
+    "cover": "birdman.jpg"
+  },
+  {
+    "type": "movie",
     "title": "The Cable Guy",
     "year": 1996,
     "rating": 4,
     "cover": "cable-guy.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Captain America: The First Avenger",
+    "year": 2011,
+    "rating": 4,
+    "cover": "captain-america-first-avenger.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Captain America: The Winter Soldier",
+    "year": 2014,
+    "rating": 5,
+    "cover": "captain-america-winter-soldier.jpg"
   },
   {
     "type": "movie",
@@ -744,6 +884,138 @@
     "year": 1996,
     "rating": 2,
     "cover": "mars-attacks.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Suicide Squad",
+    "year": 2016,
+    "cover": "suicide-squad.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Super Mario Bros. Movie",
+    "year": 2023,
+    "rating": 3,
+    "cover": "super-mario-bros-movie.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Sword in the Stone",
+    "year": 1963,
+    "rating": 4,
+    "cover": "sword-in-the-stone.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Teenage Mutant Ninja Turtles",
+    "year": 2014,
+    "rating": 2,
+    "cover": "teenage-mutant-ninja-turtles-2014.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Teenage Mutant Ninja Turtles II: The Secret of the Ooze",
+    "year": 1991,
+    "rating": 5,
+    "cover": "tmnt-2-secret-of-the-ooze.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Teenage Mutant Ninja Turtles III",
+    "year": 1993,
+    "rating": 2,
+    "cover": "tmnt-3.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Teenage Mutant Ninja Turtles: Out of the Shadows",
+    "year": 2016,
+    "rating": 4,
+    "cover": "tmnt-out-of-the-shadows.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Teenage Mutant Ninja Turtles: The Original Movie",
+    "year": 1990,
+    "rating": 5,
+    "cover": "tmnt-original-movie.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Tenacious D in The Pick of Destiny",
+    "year": 2006,
+    "rating": 5,
+    "cover": "tenacious-d-pick-of-destiny.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Terminator",
+    "year": 1984,
+    "rating": 4,
+    "cover": "terminator.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "rating": 5,
+    "cover": "terminator-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "This Is Spinal Tap (Remastered)",
+    "year": 1984,
+    "rating": 5,
+    "cover": "spinal-tap.png"
+  },
+  {
+    "type": "movie",
+    "title": "Thor",
+    "year": 2011,
+    "rating": 4,
+    "cover": "thor.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Thor: The Dark World",
+    "year": 2013,
+    "rating": 4,
+    "cover": "thor-dark-world.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "TMNT",
+    "year": 2007,
+    "rating": 3,
+    "cover": "tmnt-2007.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Tomb Raider",
+    "year": 2018,
+    "rating": 3,
+    "cover": "tomb-raider-2018.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Tommy Boy",
+    "year": 1995,
+    "rating": 5,
+    "cover": "tommy-boy.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Toy Story",
+    "year": 1995,
+    "rating": 5,
+    "cover": "toy-story.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Tusk",
+    "year": 2014,
+    "rating": 4,
+    "cover": "tusk.jpg"
   },
   {
     "type": "movie",
