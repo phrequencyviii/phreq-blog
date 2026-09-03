@@ -1,0 +1,46 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Not found — ${SITE_TITLE}`} description="This page doesn't exist." />
+		<style>
+			.not-found {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: 0 auto;
+				padding: 4em 1em;
+				text-align: center;
+			}
+			.not-found .code {
+				font-family: var(--font-mono);
+				font-size: 0.85em;
+				letter-spacing: 0.06em;
+				color: rgb(var(--gray));
+			}
+			.not-found h1 {
+				font-size: 2.5em;
+				margin: 0.3em 0 0.6em;
+			}
+			.not-found a {
+				color: var(--accent);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="not-found">
+				<p class="code">404</p>
+				<h1>Page not found</h1>
+				<p><a href="/">Back to phreq.blog</a></p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

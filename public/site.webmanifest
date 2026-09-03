@@ -1,0 +1,21 @@
+{
+	"name": "phreq.blog",
+	"short_name": "phreq.blog",
+	"description": "personal site & blog by phrequencyviii",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#e0e3e8",
+	"theme_color": "#1c1c1c",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
+		},
+		{
+			"src": "/favicon.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
