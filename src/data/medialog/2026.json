@@ -887,6 +887,167 @@
   },
   {
     "type": "movie",
+    "title": "The Mask",
+    "year": 1994,
+    "rating": 4,
+    "cover": "mask.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Matrix",
+    "year": 1999,
+    "rating": 4,
+    "cover": "matrix.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Monsters, Inc.",
+    "year": 2001,
+    "rating": 5,
+    "cover": "monsters-inc.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Mortal Kombat",
+    "year": 1995,
+    "rating": 4,
+    "cover": "mortal-kombat.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Muppet Christmas Carol",
+    "year": 1992,
+    "rating": 5,
+    "cover": "muppet-christmas-carol.png"
+  },
+  {
+    "type": "movie",
+    "title": "The Muppets",
+    "year": 2011,
+    "rating": 3,
+    "cover": "muppets-2011.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "My Friend Dahmer",
+    "year": 2017,
+    "rating": 4,
+    "cover": "my-friend-dahmer.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Mystery Men",
+    "year": 1999,
+    "rating": 5,
+    "cover": "mystery-men.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Napoleon Dynamite",
+    "year": 2004,
+    "rating": 5,
+    "cover": "napoleon-dynamite.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Nightmare Before Christmas",
+    "year": 1993,
+    "rating": 5,
+    "cover": "nightmare-before-christmas.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Office Space",
+    "year": 1999,
+    "rating": 4,
+    "cover": "office-space.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Orange County",
+    "year": 2002,
+    "rating": 5,
+    "cover": "orange-county.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Pocahontas",
+    "year": 1995,
+    "rating": 4,
+    "cover": "pocahontas.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Power Rangers",
+    "year": 2017,
+    "rating": 3,
+    "cover": "power-rangers-2017.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Predator",
+    "year": 2018,
+    "rating": 5,
+    "cover": "predator-2018.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Predator",
+    "year": 1987,
+    "rating": 4,
+    "cover": "predator-1987.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Predator 2",
+    "year": 1990,
+    "rating": 5,
+    "cover": "predator-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Predators",
+    "year": 2010,
+    "rating": 4,
+    "cover": "predators-2010.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Robin Hood",
+    "year": 1973,
+    "rating": 4,
+    "cover": "robin-hood.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "RoboCop",
+    "year": 1987,
+    "rating": 4,
+    "cover": "robocop.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Rudolph the Red-Nosed Reindeer",
+    "year": 1964,
+    "rating": 4,
+    "cover": "rudolph-red-nosed-reindeer.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Santa Clause",
+    "year": 1994,
+    "rating": 4,
+    "cover": "santa-clause.png"
+  },
+  {
+    "type": "movie",
+    "title": "School of Rock",
+    "year": 2003,
+    "rating": 4,
+    "cover": "school-of-rock.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Suicide Squad",
     "year": 2016,
     "cover": "suicide-squad.jpg"
