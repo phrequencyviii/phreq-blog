@@ -418,6 +418,13 @@
   },
   {
     "type": "movie",
+    "title": "Batman: Year One",
+    "year": 2011,
+    "rating": 5,
+    "cover": "batman-year-one.jpg"
+  },
+  {
+    "type": "movie",
     "title": "The Big Lebowski",
     "year": 1998,
     "rating": 5,
@@ -429,6 +436,20 @@
     "year": 1996,
     "rating": 4,
     "cover": "cable-guy.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Casper",
+    "year": 1995,
+    "rating": 3,
+    "cover": "casper.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Chasing Amy",
+    "year": 1997,
+    "rating": 5,
+    "cover": "chasing-amy.png"
   },
   {
     "type": "movie",
@@ -446,6 +467,13 @@
   },
   {
     "type": "movie",
+    "title": "A Clockwork Orange",
+    "year": 1971,
+    "rating": 5,
+    "cover": "clockwork-orange.jpg"
+  },
+  {
+    "type": "movie",
     "title": "The Dark Knight",
     "year": 2008,
     "rating": 5,
@@ -453,10 +481,31 @@
   },
   {
     "type": "movie",
+    "title": "The Dark Knight Rises",
+    "year": 2012,
+    "rating": 4,
+    "cover": "dark-knight-rises.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Dawn of the Dead",
+    "year": 2004,
+    "rating": 3,
+    "cover": "dawn-of-the-dead.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Deadpool 2",
     "year": 2018,
     "rating": 4,
     "cover": "deadpool-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Dr. Seuss' How the Grinch Stole Christmas!",
+    "year": 1966,
+    "rating": 5,
+    "cover": "dr-seuss-how-the-grinch-stole-christmas.jpg"
   },
   {
     "type": "movie",
@@ -474,6 +523,111 @@
   },
   {
     "type": "movie",
+    "title": "The Emperor's New Groove",
+    "year": 2000,
+    "rating": 5,
+    "cover": "emperors-new-groove.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "An Evening with Kevin Smith 2: Evening Harder",
+    "year": 2006,
+    "rating": 5,
+    "cover": "evening-harder.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "FernGully: The Last Rainforest",
+    "year": 1992,
+    "rating": 4,
+    "cover": "ferngully.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "General Magic",
+    "year": 2018,
+    "rating": 4,
+    "cover": "general-magic.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Ghostbusters",
+    "year": 1984,
+    "rating": 5,
+    "cover": "ghostbusters.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Ghostbusters II",
+    "year": 1989,
+    "rating": 4,
+    "cover": "ghostbusters-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Gone Girl",
+    "year": 2014,
+    "rating": 5,
+    "cover": "gone-girl.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "A Goofy Movie",
+    "year": 1995,
+    "rating": 4,
+    "cover": "goofy-movie.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Gremlins",
+    "year": 1984,
+    "rating": 5,
+    "cover": "gremlins.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Gremlins 2: The New Batch",
+    "year": 1990,
+    "rating": 5,
+    "cover": "gremlins-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Hercules",
+    "year": 1997,
+    "rating": 5,
+    "cover": "hercules.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Hocus Pocus",
+    "year": 1993,
+    "rating": 5,
+    "cover": "hocus-pocus.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Home Alone",
+    "year": 1990,
+    "rating": 5,
+    "cover": "home-alone.png"
+  },
+  {
+    "type": "movie",
+    "title": "Home Alone 2: Lost in New York",
+    "year": 1992,
+    "rating": 5,
+    "cover": "home-alone-2.png"
+  },
+  {
+    "type": "movie",
+    "title": "Hook",
+    "year": 1991,
+    "rating": 4,
+    "cover": "hook.jpg"
+  },
+  {
+    "type": "movie",
     "title": "How the Grinch Stole Christmas",
     "year": 2000,
     "rating": 5,
@@ -481,10 +635,108 @@
   },
   {
     "type": "movie",
+    "title": "Idiocracy",
+    "year": 2006,
+    "rating": 5,
+    "cover": "idiocracy.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The Incredible Hulk",
+    "year": 2008,
+    "rating": 4,
+    "cover": "incredible-hulk.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Interview with the Vampire",
+    "year": 1994,
+    "rating": 4,
+    "cover": "interview-with-the-vampire.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Iron Man",
+    "year": 2008,
+    "rating": 4,
+    "cover": "iron-man.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Iron Man 2",
+    "year": 2010,
+    "rating": 4,
+    "cover": "iron-man-2.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Iron Man 3",
+    "year": 2013,
+    "rating": 4,
+    "cover": "iron-man-3.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "IT",
+    "year": 2017,
+    "rating": 4,
+    "cover": "it-2017.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Jay and Silent Bob Strike Back",
+    "year": 2001,
+    "rating": 5,
+    "cover": "jay-and-silent-bob-strike-back.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Jennifer's Body",
+    "year": 2009,
+    "rating": 3,
+    "cover": "jennifers-body.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Jesus Camp",
+    "year": 2006,
+    "rating": 5,
+    "cover": "jesus-camp.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Jingle All the Way",
+    "year": 1996,
+    "rating": 4,
+    "cover": "jingle-all-the-way.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Jumanji",
+    "year": 1995,
+    "rating": 4,
+    "cover": "jumanji-1995.jpg"
+  },
+  {
+    "type": "movie",
     "title": "Jurassic Park",
     "year": 1993,
     "rating": 5,
     "cover": "jurassic-park.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "The King of Kong: A Fistful of Quarters",
+    "year": 2007,
+    "rating": 4,
+    "cover": "king-of-kong.jpg"
+  },
+  {
+    "type": "movie",
+    "title": "Lara Croft: Tomb Raider",
+    "year": 2001,
+    "rating": 1,
+    "cover": "tomb-raider-2001.jpg"
   },
   {
     "type": "movie",
