@@ -9,7 +9,7 @@ interface MediaEntry {
 	title: string;
 	artist?: string;
 	year: number;
-	rating?: number;  // 1–5
+	rating?: number;  // 0–5
 	notes?: string;
 	cover?: string;   // filename in public/medialog/
 }
@@ -285,7 +285,7 @@ const eagerKey = visibleSections[0]?.key;
 									}
 									<div class="card-title">{entry.title}</div>
 									{entry.artist && <div class="card-sub">{entry.artist}</div>}
-									{entry.rating && <div class="card-meta">{stars(entry.rating)}</div>}
+									{entry.rating != null && <div class="card-meta">{stars(entry.rating)}</div>}
 								</div>
 							))}
 						</div>
