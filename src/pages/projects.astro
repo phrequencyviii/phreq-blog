@@ -1,0 +1,138 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+
+interface Project {
+	title: string;
+	status: 'active' | 'paused' | 'shipped';
+	description: string;
+	link?: string;
+}
+
+const statusLabel = {
+	active: 'Active',
+	paused: 'Paused',
+	shipped: 'Shipped',
+};
+
+const projects: Project[] = [
+	{
+		title: 'This very website',
+		status: 'active',
+		description: "This counts, right? It's my personal blog where I share my thoughts and interests that probably only I care about.",
+		link: 'https://phreq.blog',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Projects" description={SITE_DESCRIPTION} />
+		<style>
+			.page-header {
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid var(--border);
+			}
+			.page-header h1 {
+				font-size: 2.4em;
+				margin-bottom: 0.15em;
+			}
+			.intro {
+				border-top: 1px solid var(--border);
+				padding-top: 1em;
+			}
+			.intro p {
+				font-size: 0.95em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.7;
+				margin: 0;
+			}
+
+			.project-list {
+				display: flex;
+				flex-direction: column;
+				gap: 1.5em;
+			}
+			.project {
+				padding-bottom: 1.5em;
+				border-bottom: 1px solid var(--border);
+			}
+			.project:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+			.project-heading {
+				display: flex;
+				align-items: baseline;
+				gap: 0.75em;
+				flex-wrap: wrap;
+				margin-bottom: 0.4em;
+			}
+			.project-title {
+				font-family: var(--font-cormorant);
+				font-size: 1.5em;
+				font-weight: 600;
+				color: rgb(var(--black));
+				margin: 0;
+			}
+			.project-title a {
+				color: inherit;
+				text-decoration-color: var(--border);
+			}
+			.project-title a:hover {
+				color: var(--accent);
+			}
+			.status {
+				font-family: var(--font-mono);
+				font-size: 0.65em;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.25em 0.6em;
+				border-radius: 2px;
+				border: 1px solid var(--border);
+				color: rgb(var(--gray));
+			}
+			.status.active {
+				color: var(--accent);
+				border-color: var(--accent);
+			}
+			.project-description {
+				color: rgb(var(--gray-dark));
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Projects</h1>
+				<div class="intro">
+					<p>Here is a running list of stuff I'm working on, or have worked on in the past.</p>
+				</div>
+			</div>
+
+			<div class="project-list">
+				{projects.map(({ title, status, description, link }) => (
+					<div class="project">
+						<div class="project-heading">
+							<h2 class="project-title">
+								{link
+									? <a href={link} target="_blank" rel="noopener">{title}</a>
+									: title}
+							</h2>
+							<span class:list={['status', status]}>{statusLabel[status]}</span>
+						</div>
+						<p class="project-description">{description}</p>
+					</div>
+				))}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
