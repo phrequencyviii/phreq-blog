@@ -129,6 +129,14 @@
   },
   {
     "type": "music",
+    "title": "Agalloch / Nest",
+    "artist": "Agalloch",
+    "year": 2004,
+    "rating": 4,
+    "cover": "agalloch-nest.jpg"
+  },
+  {
+    "type": "music",
     "title": "Agape",
     "artist": "Lantlôs",
     "year": 2011,
@@ -193,11 +201,27 @@
   },
   {
     "type": "music",
+    "title": "Antichrist",
+    "artist": "Akercocke",
+    "year": 2007,
+    "rating": 4,
+    "cover": "akercocke-antichrist.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Antichrist Imperium",
     "artist": "The Antichrist Imperium",
     "year": 2015,
     "rating": 4,
     "cover": "antichrist-imperium.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Ashes Against the Grain",
+    "artist": "Agalloch",
+    "year": 2006,
+    "rating": 5,
+    "cover": "ashes-against-the-grain.jpg"
   },
   {
     "type": "music",
@@ -214,6 +238,14 @@
     "year": 2023,
     "rating": 4,
     "cover": "chaos-horrific.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Choronzon",
+    "artist": "Akercocke",
+    "year": 2003,
+    "rating": 4,
+    "cover": "akercocke-choronzon.jpg"
   },
   {
     "type": "music",
@@ -262,6 +294,14 @@
     "year": 2011,
     "rating": 4,
     "cover": "gold-cobra.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The Grey EP",
+    "artist": "Agalloch",
+    "year": 2004,
+    "rating": 4,
+    "cover": "agalloch-the-grey-ep.jpg"
   },
   {
     "type": "music",
@@ -337,6 +377,14 @@
   },
   {
     "type": "music",
+    "title": "The Mantle",
+    "artist": "Agalloch",
+    "year": 2002,
+    "rating": 5,
+    "cover": "agalloch-the-mantle.jpg"
+  },
+  {
+    "type": "music",
     "title": "Melting Sun",
     "artist": "Lantlôs",
     "year": 2014,
@@ -377,6 +425,14 @@
   },
   {
     "type": "music",
+    "title": "Of Stone, Wind, and Pillor",
+    "artist": "Agalloch",
+    "year": 2001,
+    "rating": 4,
+    "cover": "of-stone-wind-and-pillor.jpg"
+  },
+  {
+    "type": "music",
     "title": "Our Little Secret",
     "artist": "Lords of Acid",
     "year": 1997,
@@ -385,11 +441,27 @@
   },
   {
     "type": "music",
+    "title": "Pale Folklore",
+    "artist": "Agalloch",
+    "year": 1999,
+    "rating": 4,
+    "cover": "pale-folklore.jpg"
+  },
+  {
+    "type": "music",
     "title": "Pulver",
     "artist": "Lifelover",
     "year": 2006,
     "rating": 5,
     "cover": "pulver.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Renaissance in Extremis",
+    "artist": "Akercocke",
+    "year": 2017,
+    "rating": 5,
+    "cover": "akercocke-renaissance-in-extremis.jpg"
   },
   {
     "type": "music",
@@ -417,6 +489,22 @@
   },
   {
     "type": "music",
+    "title": "The Serpent & the Sphere",
+    "artist": "Agalloch",
+    "year": 2014,
+    "rating": 4,
+    "cover": "the-serpent-and-the-sphere.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Serpent's Embrace",
+    "artist": "Agathodaimon",
+    "year": 2004,
+    "rating": 4,
+    "cover": "agathodaimon-serpents-embrace.jpg"
+  },
+  {
+    "type": "music",
     "title": "SETI",
     "artist": "The Kovenant",
     "year": 2003,
@@ -430,6 +518,14 @@
     "year": 1999,
     "rating": 4,
     "cover": "significant-other.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Sing the Sorrow",
+    "artist": "AFI",
+    "year": 2003,
+    "rating": 5,
+    "cover": "sing-the-sorrow.jpg"
   },
   {
     "type": "music",
@@ -486,6 +582,22 @@
     "year": 2019,
     "rating": 4,
     "cover": "tai-volume-ii.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The White EP",
+    "artist": "Agalloch",
+    "year": 2008,
+    "rating": 5,
+    "cover": "agalloch-the-white-ep.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Words That Go Unspoken, Deeds That Go Undone",
+    "artist": "Akercocke",
+    "year": 2005,
+    "rating": 5,
+    "cover": "akercocke-words-that-go-unspoken.jpg"
   },
   {
     "type": "music",
