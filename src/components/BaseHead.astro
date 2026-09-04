@@ -66,8 +66,4 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
-<script>
-  // Clear any stale theme preference from localStorage
-  localStorage.removeItem('theme');
-  document.documentElement.removeAttribute('data-theme');
-</script>
+<script src="../scripts/reset-theme.ts"></script>

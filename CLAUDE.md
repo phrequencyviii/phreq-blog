@@ -118,6 +118,16 @@ no effect in `astro dev`. It sets the site-wide security headers (`X-Frame-Optio
 `application/rss+xml` content type on `/rss.xml`. Verify changes on a deployed preview, not
 locally.
 
+Every route's CSP sets `script-src 'self'` with no `'unsafe-inline'`. Vite's default
+`assetsInlineLimit` (4096 bytes) inlines small `<script>` bundles directly into the HTML as
+`<script type="module">...</script>` with no `src`, which that CSP then silently blocks — the
+mark stays visually styled (CSS isn't affected) but its JS never runs. `astro.config.mjs` sets
+`vite.build.assetsInlineLimit: 0` to force every script to build as an external same-origin file
+instead, which `'self'` already covers. This applies sitewide (not just to the homepage's
+lightning-effect script — `BaseHead.astro`'s theme-reset script was being silently blocked on
+every route), so don't remove it without re-checking `dist/*/index.html` for bare
+`<script type="module">` tags with no `src`.
+
 ### Favicons
 
 Two files, both the "viii" gothic wordmark:
