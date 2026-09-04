@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { SITE_DESCRIPTION } from '../consts';
 
 interface Project {
@@ -32,26 +33,6 @@ const projects: Project[] = [
 	<head>
 		<BaseHead title="Projects" description={SITE_DESCRIPTION} />
 		<style>
-			.page-header {
-				margin-bottom: 2em;
-				padding-bottom: 1em;
-				border-bottom: 1px solid var(--border);
-			}
-			.page-header h1 {
-				font-size: 2.4em;
-				margin-bottom: 0.15em;
-			}
-			.intro {
-				border-top: 1px solid var(--border);
-				padding-top: 1em;
-			}
-			.intro p {
-				font-size: 0.95em;
-				color: rgb(var(--gray-dark));
-				line-height: 1.7;
-				margin: 0;
-			}
-
 			.project-list {
 				display: flex;
 				flex-direction: column;
@@ -110,12 +91,9 @@ const projects: Project[] = [
 	<body>
 		<Header />
 		<main>
-			<div class="page-header">
-				<h1>Projects</h1>
-				<div class="intro">
-					<p>Here is a running list of stuff I'm working on, or have worked on in the past.</p>
-				</div>
-			</div>
+			<PageHeader title="Projects">
+				<p>Here is a running list of stuff I'm working on, or have worked on in the past.</p>
+			</PageHeader>
 
 			<div class="project-list">
 				{projects.map(({ title, status, description, link }) => (
