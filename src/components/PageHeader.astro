@@ -1,0 +1,40 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="page-header">
+	<h1>{title}</h1>
+	<div class="intro">
+		<slot />
+	</div>
+</div>
+<style>
+	.page-header {
+		margin-bottom: 2em;
+		padding-bottom: 1em;
+		border-bottom: 1px solid var(--border);
+	}
+	.page-header h1 {
+		font-size: 2.4em;
+		margin-bottom: 0.15em;
+	}
+	.intro {
+		border-top: 1px solid var(--border);
+		padding-top: 1em;
+	}
+	.intro :global(p) {
+		font-size: 0.95em;
+		color: rgb(var(--gray-dark));
+		line-height: 1.7;
+		margin: 0 0 1.25em;
+	}
+	/* Pages whose intro is a single paragraph (no nav/note after it)
+	   shouldn't carry the trailing gap meant to separate it from that. */
+	.intro :global(p:last-child) {
+		margin-bottom: 0;
+	}
+</style>

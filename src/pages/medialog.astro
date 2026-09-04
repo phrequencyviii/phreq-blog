@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { SITE_DESCRIPTION } from '../consts';
 
 interface MediaEntry {
@@ -67,25 +68,6 @@ const eagerKey = visibleSections[0]?.key;
 	<head>
 		<BaseHead title="Medialog" description={SITE_DESCRIPTION} />
 		<style>
-			.page-header {
-				margin-bottom: 2em;
-				padding-bottom: 1em;
-				border-bottom: 1px solid var(--border);
-			}
-			.page-header h1 {
-				font-size: 2.4em;
-				margin-bottom: 0.15em;
-			}
-			.intro {
-				border-top: 1px solid var(--border);
-				padding-top: 1em;
-			}
-			.intro p {
-				font-size: 0.95em;
-				color: rgb(var(--gray-dark));
-				line-height: 1.7;
-				margin: 0 0 1.25em;
-			}
 			.jump-nav {
 				display: flex;
 				gap: 0.5em;
@@ -240,20 +222,17 @@ const eagerKey = visibleSections[0]?.key;
 	<body>
 		<Header />
 		<main>
-			<div class="page-header">
-				<h1>Medialog</h1>
-				<div class="intro">
-					<p>I decided to start tracking down stuff I've read, watched, and listened to, as well as a quick little star rating. All the big platforms and apps that help track this stuff end up getting enshittified, sold off, or closed down anyways, so I'll just do it myself. I started tracking as of 2026. My head would explode if I tried to track everything prior to that.</p>
-					<nav class="jump-nav">
-						{[{ label: 'Video Games', id: 'games' }, ...sections.filter(s => byType[s.key].length > 0)].map(({ label, id }, i, arr) => (
-							<>
-								<a href={`#${id}`}>{label}</a>
-								{i < arr.length - 1 && <span class="sep">·</span>}
-							</>
-						))}
-					</nav>
-				</div>
-			</div>
+			<PageHeader title="Medialog">
+				<p>I decided to start tracking down stuff I've read, watched, and listened to, as well as a quick little star rating. All the big platforms and apps that help track this stuff end up getting enshittified, sold off, or closed down anyways, so I'll just do it myself. I started tracking as of 2026. My head would explode if I tried to track everything prior to that.</p>
+				<nav class="jump-nav">
+					{[{ label: 'Video Games', id: 'games' }, ...sections.filter(s => byType[s.key].length > 0)].map(({ label, id }, i, arr) => (
+						<>
+							<a href={`#${id}`}>{label}</a>
+							{i < arr.length - 1 && <span class="sep">·</span>}
+						</>
+					))}
+				</nav>
+			</PageHeader>
 
 			<section class="section" id="games">
 				<div class="section-title">Video Games</div>
