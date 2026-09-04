@@ -70,16 +70,4 @@ const { title, description, image = '/og-image.png' } = Astro.props;
   // Clear any stale theme preference from localStorage
   localStorage.removeItem('theme');
   document.documentElement.removeAttribute('data-theme');
-
-  // ── Active nav ──────────────────────────────────────────
-  function setActiveNav() {
-    const pathname = window.location.pathname.replace(/\/$/, '') || '/';
-    document.querySelectorAll('.nav-links a').forEach((link) => {
-      const href = (link.getAttribute('href') ?? '').replace(/\/$/, '') || '/';
-      const active = href === pathname || (href !== '/' && pathname.startsWith(href));
-      link.classList.toggle('active', active);
-    });
-  }
-
-  document.addEventListener('astro:page-load', setActiveNav);
 </script>
