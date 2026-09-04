@@ -153,6 +153,12 @@ const eagerKey = visibleSections[0]?.key;
 				justify-content: start;
 				margin-top: 0.5em;
 			}
+			/* Square covers have no letterboxing, so they can run a touch bigger
+			   than the portrait grids without outgrowing 6-per-row at the default
+			   main width — see the column-fit math this size is chosen from. */
+			.card-grid--music {
+				grid-template-columns: repeat(auto-fill, minmax(80px, 104px));
+			}
 			.media-card {
 				display: flex;
 				flex-direction: column;
@@ -249,7 +255,7 @@ const eagerKey = visibleSections[0]?.key;
 					{byType[key].length === 0 ? (
 						<p class="empty">nothing logged yet</p>
 					) : (
-						<div class="card-grid">
+						<div class:list={['card-grid', key === 'music' && 'card-grid--music']}>
 							{byType[key].map((entry, i) => (
 								<div class="media-card">
 									{entry.cover
@@ -264,7 +270,11 @@ const eagerKey = visibleSections[0]?.key;
 									}
 									<div class="card-title">{entry.title}</div>
 									{entry.artist && <div class="card-sub">{entry.artist}</div>}
-									{entry.rating != null && <div class="card-meta">{stars(entry.rating)}</div>}
+									{entry.rating != null && (
+										<div class="card-meta" aria-label={`${entry.rating} out of 5 stars`}>
+											{stars(entry.rating)}
+										</div>
+									)}
 								</div>
 							))}
 						</div>

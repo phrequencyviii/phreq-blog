@@ -1,5 +1,5 @@
 (function () {
-	var stage = document.getElementById('stage');
+	var stage = document.getElementById('stage')!;
 	var canvas = document.getElementById('fx') as HTMLCanvasElement;
 	var ctx = canvas.getContext('2d')!;
 	var markWrap = document.getElementById('markWrap')!;
