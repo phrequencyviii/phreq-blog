@@ -129,6 +129,14 @@
   },
   {
     "type": "music",
+    "title": "Agape",
+    "artist": "Lantlôs",
+    "year": 2011,
+    "rating": 4,
+    "cover": "lantlos-agape.jpg"
+  },
+  {
+    "type": "music",
     "title": "Alpocalypse",
     "artist": "\"Weird Al\" Yankovic",
     "year": 2011,
@@ -142,6 +150,14 @@
     "year": 1992,
     "rating": 4,
     "cover": "gwar-america-must-be-destroyed.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Amesoeurs",
+    "artist": "Amesoeurs",
+    "year": 2009,
+    "rating": 5,
+    "cover": "amesoeurs.jpg"
   },
   {
     "type": "music",
@@ -169,6 +185,14 @@
   },
   {
     "type": "music",
+    "title": "Animatronic",
+    "artist": "The Kovenant",
+    "year": 1999,
+    "rating": 5,
+    "cover": "the-kovenant-animatronic.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Antichrist Imperium",
     "artist": "The Antichrist Imperium",
     "year": 2015,
@@ -193,11 +217,43 @@
   },
   {
     "type": "music",
+    "title": "Dekadens",
+    "artist": "Lifelover",
+    "year": 2009,
+    "rating": 4,
+    "cover": "dekadens.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Destroying the Sacred",
+    "artist": "Kult ov Azazel",
+    "year": 2009,
+    "rating": 4,
+    "cover": "destroying-the-sacred.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The Dreaming Prince in Ecstasy",
+    "artist": "Lamp of Murmuur",
+    "year": 2025,
+    "rating": 5,
+    "cover": "the-dreaming-prince-in-ecstasy.jpg"
+  },
+  {
+    "type": "music",
     "title": "Ending the Circle of Life",
     "artist": "Lyrinx",
     "year": 2009,
     "rating": 5,
     "cover": "ending-the-circle-of-life.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Follow the Leader",
+    "artist": "Korn",
+    "year": 1998,
+    "rating": 4,
+    "cover": "follow-the-leader.jpg"
   },
   {
     "type": "music",
@@ -217,11 +273,43 @@
   },
   {
     "type": "music",
+    "title": "In Times Before the Light",
+    "artist": "Covenant",
+    "year": 1997,
+    "rating": 4,
+    "cover": "in-times-before-the-light.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Issues",
+    "artist": "Korn",
+    "year": 1999,
+    "rating": 5,
+    "cover": "korn-issues.jpg"
+  },
+  {
+    "type": "music",
     "title": "Konkurs",
     "artist": "Lifelover",
     "year": 2008,
     "rating": 5,
     "cover": "konkurs.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Korn",
+    "artist": "Korn",
+    "year": 1994,
+    "rating": 4,
+    "cover": "korn.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Led Zeppelin IV",
+    "artist": "Led Zeppelin",
+    "year": 1971,
+    "rating": 5,
+    "cover": "led-zeppelin-iv.jpg"
   },
   {
     "type": "music",
@@ -233,6 +321,14 @@
   },
   {
     "type": "music",
+    "title": "Life Is Peachy",
+    "artist": "Korn",
+    "year": 1996,
+    "rating": 5,
+    "cover": "life-is-peachy.jpg"
+  },
+  {
+    "type": "music",
     "title": "Lust",
     "artist": "Lords of Acid",
     "year": 1991,
@@ -241,11 +337,43 @@
   },
   {
     "type": "music",
+    "title": "Melting Sun",
+    "artist": "Lantlôs",
+    "year": 2014,
+    "rating": 5,
+    "cover": "melting-sun.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Neon",
+    "artist": "Lantlôs",
+    "year": 2010,
+    "rating": 5,
+    "cover": "lantlos-neon.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Nexus Polaris",
+    "artist": "Covenant",
+    "year": 1998,
+    "rating": 4,
+    "cover": "nexus-polaris.jpg"
+  },
+  {
+    "type": "music",
     "title": "Nihilistic Purity",
     "artist": "Lyrinx",
     "year": 2007,
     "rating": 5,
     "cover": "nihilistic-purity.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Oculus Infernum",
+    "artist": "Kult ov Azazel",
+    "year": 2003,
+    "rating": 5,
+    "cover": "oculus-infernum.jpg"
   },
   {
     "type": "music",
@@ -265,6 +393,38 @@
   },
   {
     "type": "music",
+    "title": "Requiem",
+    "artist": "Korn",
+    "year": 2022,
+    "rating": 4,
+    "cover": "korn-requiem.jpg"
+  },
+  {
+    "type": "music",
+    "title": "See You on the Other Side",
+    "artist": "Korn",
+    "year": 2005,
+    "rating": 2,
+    "cover": "see-you-on-the-other-side.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The Serenity of Suffering",
+    "artist": "Korn",
+    "year": 2016,
+    "rating": 5,
+    "cover": "the-serenity-of-suffering.jpg"
+  },
+  {
+    "type": "music",
+    "title": "SETI",
+    "artist": "The Kovenant",
+    "year": 2003,
+    "rating": 4,
+    "cover": "the-kovenant-seti.jpg"
+  },
+  {
+    "type": "music",
     "title": "Significant Other",
     "artist": "Limp Bizkit",
     "year": 1999,
@@ -281,6 +441,38 @@
   },
   {
     "type": "music",
+    "title": "Spiritually Uncontrolled Art",
+    "artist": "Liers in Wait",
+    "year": 1992,
+    "rating": 5,
+    "cover": "spiritually-uncontrolled-art.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Take a Look in the Mirror",
+    "artist": "Korn",
+    "year": 2003,
+    "rating": 3,
+    "cover": "take-a-look-in-the-mirror.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Triumph of Fire",
+    "artist": "Kult ov Azazel",
+    "year": 2001,
+    "rating": 4,
+    "cover": "triumph-of-fire.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Untouchables",
+    "artist": "Korn",
+    "year": 2002,
+    "rating": 3,
+    "cover": "korn-untouchables.jpg"
+  },
+  {
+    "type": "music",
     "title": "Vivid",
     "artist": "Living Colour",
     "year": 1988,
@@ -294,6 +486,14 @@
     "year": 2019,
     "rating": 4,
     "cover": "tai-volume-ii.jpg"
+  },
+  {
+    "type": "music",
+    "title": "The World, the Flesh & the Devil",
+    "artist": "Kult ov Azazel",
+    "year": 2005,
+    "rating": 4,
+    "cover": "the-world-the-flesh-and-the-devil.jpg"
   },
   {
     "type": "tv",
