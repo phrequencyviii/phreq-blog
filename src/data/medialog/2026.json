@@ -161,6 +161,14 @@
   },
   {
     "type": "music",
+    "title": "...And I Return to Nothingness",
+    "artist": "Lorna Shore",
+    "year": 2021,
+    "rating": 4,
+    "cover": "and-i-return-to-nothingness.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Antichrist Imperium",
     "artist": "The Antichrist Imperium",
     "year": 2015,
@@ -185,11 +193,99 @@
   },
   {
     "type": "music",
+    "title": "Ending the Circle of Life",
+    "artist": "Lyrinx",
+    "year": 2009,
+    "rating": 5,
+    "cover": "ending-the-circle-of-life.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Gold Cobra",
+    "artist": "Limp Bizkit",
+    "year": 2011,
+    "rating": 4,
+    "cover": "gold-cobra.jpg"
+  },
+  {
+    "type": "music",
     "title": "Hideous Aftermath",
     "artist": "Sanguisugabogg",
     "year": 2025,
     "rating": 5,
     "cover": "hideous-aftermath.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Konkurs",
+    "artist": "Lifelover",
+    "year": 2008,
+    "rating": 5,
+    "cover": "konkurs.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Legacy of Evil",
+    "artist": "Limbonic Art",
+    "year": 2007,
+    "rating": 4,
+    "cover": "legacy-of-evil.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Lust",
+    "artist": "Lords of Acid",
+    "year": 1991,
+    "rating": 3,
+    "cover": "lords-of-acid-lust.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Nihilistic Purity",
+    "artist": "Lyrinx",
+    "year": 2007,
+    "rating": 5,
+    "cover": "nihilistic-purity.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Our Little Secret",
+    "artist": "Lords of Acid",
+    "year": 1997,
+    "rating": 4,
+    "cover": "our-little-secret.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Pulver",
+    "artist": "Lifelover",
+    "year": 2006,
+    "rating": 5,
+    "cover": "pulver.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Significant Other",
+    "artist": "Limp Bizkit",
+    "year": 1999,
+    "rating": 4,
+    "cover": "significant-other.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Sjukdom",
+    "artist": "Lifelover",
+    "year": 2011,
+    "rating": 4,
+    "cover": "sjukdom.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Vivid",
+    "artist": "Living Colour",
+    "year": 1988,
+    "rating": 4,
+    "cover": "living-colour-vivid.jpg"
   },
   {
     "type": "music",
