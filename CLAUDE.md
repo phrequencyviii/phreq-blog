@@ -58,8 +58,8 @@ reintroduce them without also adding routes.
 via `import.meta.glob(..., { eager: true })`, so **adding a new year file requires no code
 changes** — drop in e.g. `2027.json` and it is picked up and merged automatically.
 
-**Cover art must be downscaled to 400px wide before being committed.** Cards render at 125px
-max (75px on mobile), so 400px is already ~3x for retina; anything larger is pure waste. These
+**Cover art must be downscaled to 400px wide before being committed.** Cards render at 100px
+max (75px on mobile), so 400px is already ~4x for retina; anything larger is pure waste. These
 files sit in `public/`, so Astro's image pipeline never touches them — nothing else will shrink
 them for you. Source art from Apple Music / TMDB arrives at 2000–2560px and ~500KB each; left
 alone, 90 entries came to 46MB of eagerly-loaded images. **`npm run covers` does this for you** —
