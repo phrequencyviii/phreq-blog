@@ -143,8 +143,12 @@ const posts = await Promise.all(
 			<section>
 				<ul>
 					{
-						posts.map(({ post, Content }) =>
-							post.data.type === 'micro' ? (
+						posts.map(({ post, Content }) => {
+							// Content is only ever set for micro posts (see the frontmatter
+							// above), but TS can't infer that correlation from post.data.type
+							// alone — assert it non-null here rather than in every reader.
+							const MicroContent = Content!;
+							return post.data.type === 'micro' ? (
 								<li class="micro">
 									<p class="date">
 										<a class="permalink" href={`/blog/${post.id}/`}>
@@ -152,7 +156,7 @@ const posts = await Promise.all(
 										</a>
 									</p>
 									<div class="micro-body">
-										<Content />
+										<MicroContent />
 									</div>
 									{post.data.tags && post.data.tags.length > 0 && (
 										<div class="tags">
@@ -193,8 +197,8 @@ const posts = await Promise.all(
 										</div>
 									</a>
 								</li>
-							),
-						)
+							);
+						})
 					}
 				</ul>
 			</section>

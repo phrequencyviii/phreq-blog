@@ -40,13 +40,29 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	</form>
 </Layout>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
-	const form = document.getElementById('contact-form');
-	const status = form.querySelector('.status');
-	const button = form.querySelector('button[type="submit"]');
+	// Omit + redeclare 'name': HTMLFormElement already has a string `name`
+	// (the form's own name attribute), which collides with the named
+	// form-control access this form actually uses it for.
+	interface ContactFormElement extends Omit<HTMLFormElement, 'name'> {
+		name: HTMLInputElement;
+		email: HTMLInputElement;
+		message: HTMLTextAreaElement;
+		website: HTMLInputElement;
+	}
 
-	form.addEventListener('submit', async (e) => {
+	declare global {
+		interface Window {
+			turnstile?: { reset: () => void };
+		}
+	}
+
+	const form = document.getElementById('contact-form') as unknown as ContactFormElement;
+	const status = form.querySelector('.status') as HTMLElement;
+	const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+	form.addEventListener('submit', async (e: SubmitEvent) => {
 		e.preventDefault();
 		status.textContent = '';
 		button.disabled = true;
@@ -56,7 +72,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 			email: form.email.value.trim(),
 			message: form.message.value.trim(),
 			website: form.website.value,
-			turnstileToken: form.querySelector('[name="cf-turnstile-response"]')?.value ?? '',
+			turnstileToken:
+				(form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)
+					?.value ?? '',
 		};
 
 		try {

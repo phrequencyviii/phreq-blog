@@ -8,8 +8,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 // pubDate is optional here (unlike the content-collection schema, which
 // requires it) so non-post pages like /about can reuse this layout without
-// faking a publish date just to satisfy the type.
-type Props = Omit<CollectionEntry<'posts'>['data'], 'pubDate'> & { pubDate?: Date };
+// faking a publish date just to satisfy the type. `type` is dropped too —
+// it's a content-collection discriminator this layout never reads, but zod's
+// `.default()` makes it non-optional in the inferred output type, which would
+// otherwise force every non-post caller to pass a meaningless value.
+type Props = Omit<CollectionEntry<'posts'>['data'], 'pubDate' | 'type'> & { pubDate?: Date };
 
 const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
