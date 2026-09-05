@@ -7,13 +7,13 @@ npm run dev      # dev server at http://localhost:4321
 npm run build    # production build to dist/
 npm run preview  # preview the production build locally
 
-npm run covers            # downscale any oversized medialog cover art, in place
-npm run covers -- --check # report only; exits 1 if any cover needs resizing
+npm run covers            # downscale/reformat medialog cover art as needed, in place
+npm run covers -- --check # report only; exits 1 if any cover needs optimizing
 ```
 
 Run `npm run covers` after adding cover art. It is idempotent, so running it when everything is
-already sized is a harmless no-op. It is deliberately **not** wired into `build` — the build runs
-on Cloudflare where mutating tracked files would be pointless.
+already optimized is a harmless no-op. It is deliberately **not** wired into `build` — the build
+runs on Cloudflare where mutating tracked files would be pointless.
 
 As of Astro 7, `astro dev` runs as a **detached background daemon** — it prints a pid and
 returns instead of holding the terminal. Manage it with:
@@ -65,6 +65,12 @@ them for you. Source art from Apple Music / TMDB arrives at 2000–2560px and ~5
 alone, 90 entries came to 46MB of eagerly-loaded images. **`npm run covers` does this for you** —
 see `scripts/optimize-covers.mjs`. It took that same set to 3.7MB.
 
+The script also normalizes format: TMDB poster art sometimes arrives as an opaque PNG, which
+runs 2-3x the size of an equivalent-quality JPEG for a photograph with no transparency to lose.
+`npm run covers` converts any opaque PNG to `.jpg` and rewrites the one `cover` reference to it
+in `src/data/medialog/*.json` — a PNG with real alpha (e.g. a logo-style cover) is left alone
+since JPEG has nothing to convert that channel into.
+
 **`year` is the work's release year**, not when it was consumed — there is deliberately no
 "date finished" field. Where a work has more than one candidate year, use the **general/home
 release, not a festival premiere**. For example *The Witch* is 2016 (wide release) rather than
@@ -91,10 +97,21 @@ carries a matching `min-height` (so a one-line title still occupies two), `.card
 single ellipsised line, and `.card-meta` uses `margin-top: auto` to pin the stars to the
 bottom regardless of what's above them.
 
-Only the first rendered section eager-loads its first 12 covers (`eagerKey` in
-`medialog.astro`); everything else is `loading="lazy"`. That is what keeps the initial payload
-at ~400KB instead of the full ~3.7MB. Note `.cover` already reserves space via `aspect-ratio`,
-so there is no layout shift and no need for `width`/`height` attributes on the `<img>`.
+Each type section is a `<details>` element; only the first rendered section (`eagerKey` in
+`medialog.astro`) starts `open`, and within it only its first 12 covers are `loading="eager"` —
+everything else, in every section, is `loading="lazy"`. A closed `<details>` has no layout box,
+so a lazy `<img>` inside one never intersects the viewport and never fetches until the section
+is opened — that's what keeps the initial payload to one section's visible covers instead of
+the whole library (12MB+ and growing) loading as you scroll. Note `.cover` already reserves
+space via `aspect-ratio`, so there is no layout shift and no need for `width`/`height`
+attributes on the `<img>`.
+
+The disclosure triangle is a custom `::before` on `.section-title` (now a `<summary>`), not the
+browser default — `list-style: none` plus hiding `::marker`/`::-webkit-details-marker` clears
+the built-in one first. The jump-nav links at the top (`#music`, `#movies`, etc.) point straight
+at each `<details>`'s `id`, so `src/scripts/medialog-sections.ts` force-opens the target section
+on click and on any direct `#hash` page load — plain anchor scrolling has no way to expand a
+`<details>` on its own, and a scroll into a still-collapsed section would land on nothing.
 
 ### Styling
 

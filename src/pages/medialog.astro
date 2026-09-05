@@ -125,6 +125,30 @@ const eagerKey = visibleSections[0]?.key;
 				display: flex;
 				align-items: baseline;
 				gap: 0.5em;
+				cursor: pointer;
+				list-style: none;
+				user-select: none;
+			}
+			/* <summary> gets a default disclosure triangle (::marker in
+			   Chrome/Firefox, a list-item marker in older Safari) — hide both
+			   and draw our own so it matches the mono/uppercase aesthetic and
+			   can be positioned after the label instead of before it. */
+			.section-title::marker,
+			.section-title::-webkit-details-marker {
+				display: none;
+			}
+			.section-title::before {
+				content: '▸';
+				display: inline-block;
+				font-size: 0.9em;
+				color: rgb(var(--gray));
+				transition: transform 0.15s ease;
+			}
+			details[open] > .section-title::before {
+				transform: rotate(90deg);
+			}
+			.section-title:hover {
+				color: var(--accent);
 			}
 			.count {
 				opacity: 0.6;
@@ -248,8 +272,10 @@ const eagerKey = visibleSections[0]?.key;
 			</section>
 
 			{visibleSections.map(({ key, label, id, note }) => (
-				<section class="section" id={id}>
-					<div class="section-title">{label}</div>
+				<details class="section" id={id} open={key === eagerKey}>
+					<summary class="section-title">
+						{label} <span class="count">({byType[key].length})</span>
+					</summary>
 					{note && <p class="section-note">{note}</p>}
 
 					{byType[key].length === 0 ? (
@@ -279,9 +305,10 @@ const eagerKey = visibleSections[0]?.key;
 							))}
 						</div>
 					)}
-				</section>
+				</details>
 			))}
 		</main>
 		<Footer />
+		<script src="../scripts/medialog-sections.ts"></script>
 	</body>
 </html>

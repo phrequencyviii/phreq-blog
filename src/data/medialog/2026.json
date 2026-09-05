@@ -1032,14 +1032,14 @@
     "title": "Amadeus (Theatrical Cut)",
     "year": 1984,
     "rating": 4,
-    "cover": "amadeus.png"
+    "cover": "amadeus.jpg"
   },
   {
     "type": "movie",
     "title": "American Psycho",
     "year": 2000,
     "rating": 5,
-    "cover": "american-psycho.png"
+    "cover": "american-psycho.jpg"
   },
   {
     "type": "movie",
@@ -1214,7 +1214,7 @@
     "title": "Chasing Amy",
     "year": 1997,
     "rating": 5,
-    "cover": "chasing-amy.png"
+    "cover": "chasing-amy.jpg"
   },
   {
     "type": "movie",
@@ -1375,14 +1375,14 @@
     "title": "Home Alone",
     "year": 1990,
     "rating": 5,
-    "cover": "home-alone.png"
+    "cover": "home-alone.jpg"
   },
   {
     "type": "movie",
     "title": "Home Alone 2: Lost in New York",
     "year": 1992,
     "rating": 5,
-    "cover": "home-alone-2.png"
+    "cover": "home-alone-2.jpg"
   },
   {
     "type": "movie",
@@ -1543,7 +1543,7 @@
     "title": "The Muppet Christmas Carol",
     "year": 1992,
     "rating": 5,
-    "cover": "muppet-christmas-carol.png"
+    "cover": "muppet-christmas-carol.jpg"
   },
   {
     "type": "movie",
@@ -1662,7 +1662,7 @@
     "title": "The Santa Clause",
     "year": 1994,
     "rating": 4,
-    "cover": "santa-clause.png"
+    "cover": "santa-clause.jpg"
   },
   {
     "type": "movie",
@@ -1753,7 +1753,7 @@
     "title": "This Is Spinal Tap (Remastered)",
     "year": 1984,
     "rating": 5,
-    "cover": "spinal-tap.png"
+    "cover": "spinal-tap.jpg"
   },
   {
     "type": "movie",
