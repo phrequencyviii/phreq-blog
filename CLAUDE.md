@@ -97,14 +97,15 @@ carries a matching `min-height` (so a one-line title still occupies two), `.card
 single ellipsised line, and `.card-meta` uses `margin-top: auto` to pin the stars to the
 bottom regardless of what's above them.
 
-Each type section is a `<details>` element; only the first rendered section (`eagerKey` in
-`medialog.astro`) starts `open`, and within it only its first 12 covers are `loading="eager"` —
-everything else, in every section, is `loading="lazy"`. A closed `<details>` has no layout box,
-so a lazy `<img>` inside one never intersects the viewport and never fetches until the section
-is opened — that's what keeps the initial payload to one section's visible covers instead of
-the whole library (12MB+ and growing) loading as you scroll. Note `.cover` already reserves
-space via `aspect-ratio`, so there is no layout shift and no need for `width`/`height`
-attributes on the `<img>`.
+Each type section is a `<details>` element, and **all of them start closed** — every cover uses
+`loading="lazy"`, with no eager exception, because a plain `<img>` without `loading="lazy"`
+fetches at parse time regardless of visibility; if any section started `open`, that'd be fine,
+but an eager cover *inside a closed section* would still download despite being hidden, which
+defeats the point. A closed `<details>` has no layout box, so a lazy `<img>` inside one never
+intersects the viewport and never fetches until the section is opened — that's what keeps the
+initial payload at zero covers instead of the whole library (12MB+ and growing) loading as you
+scroll. Note `.cover` already reserves space via `aspect-ratio`, so there is no layout shift and
+no need for `width`/`height` attributes on the `<img>`.
 
 The disclosure triangle is a custom `::before` on `.section-title` (now a `<summary>`), not the
 browser default — `list-style: none` plus hiding `::marker`/`::-webkit-details-marker` clears

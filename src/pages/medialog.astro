@@ -58,9 +58,6 @@ const sections = [
 ];
 
 const visibleSections = sections.filter(({ key }) => byType[key].length > 0);
-// Only the top of the first rendered section is above the fold; everything
-// else lazy-loads. Keeps the initial payload to one screen of covers.
-const eagerKey = visibleSections[0]?.key;
 ---
 
 <!doctype html>
@@ -272,7 +269,7 @@ const eagerKey = visibleSections[0]?.key;
 			</section>
 
 			{visibleSections.map(({ key, label, id, note }) => (
-				<details class="section" id={id} open={key === eagerKey}>
+				<details class="section" id={id}>
 					<summary class="section-title">
 						{label} <span class="count">({byType[key].length})</span>
 					</summary>
@@ -282,13 +279,13 @@ const eagerKey = visibleSections[0]?.key;
 						<p class="empty">nothing logged yet</p>
 					) : (
 						<div class:list={['card-grid', key === 'music' && 'card-grid--music']}>
-							{byType[key].map((entry, i) => (
+							{byType[key].map((entry) => (
 								<div class="media-card">
 									{entry.cover
 										? <img
 												src={`/medialog/${entry.cover}`}
 												alt={entry.title}
-												loading={key === eagerKey && i < 12 ? 'eager' : 'lazy'}
+												loading="lazy"
 												decoding="async"
 												class:list={['cover', key === 'music' ? 'square' : 'portrait']}
 											/>
