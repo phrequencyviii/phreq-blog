@@ -644,6 +644,20 @@
   },
   {
     "type": "tv",
+    "title": "Code Monkeys",
+    "year": 2007,
+    "rating": 4,
+    "cover": "code-monkeys.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "The Critic",
+    "year": 1994,
+    "rating": 4,
+    "cover": "critic.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Dexter",
     "year": 2006,
     "rating": 4,
@@ -721,6 +735,13 @@
   },
   {
     "type": "tv",
+    "title": "Mission Hill",
+    "year": 1999,
+    "rating": 5,
+    "cover": "mission-hill.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Mr. Bean",
     "year": 1990,
     "rating": 4,
@@ -749,6 +770,20 @@
   },
   {
     "type": "tv",
+    "title": "Ren & Stimpy",
+    "year": 1991,
+    "rating": 5,
+    "cover": "ren-and-stimpy.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Teenage Mutant Ninja Turtles",
+    "year": 1987,
+    "rating": 4,
+    "cover": "teenage-mutant-ninja-turtles.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Tenacious D",
     "year": 1997,
     "rating": 4,
@@ -770,10 +805,24 @@
   },
   {
     "type": "tv",
+    "title": "To Catch a Predator",
+    "year": 2004,
+    "rating": 4,
+    "cover": "to-catch-a-predator.jpg"
+  },
+  {
+    "type": "tv",
     "title": "Tom Goes to the Mayor",
     "year": 2004,
     "rating": 4,
     "cover": "tom-goes-to-the-mayor.jpg"
+  },
+  {
+    "type": "tv",
+    "title": "Trailer Park Boys",
+    "year": 2001,
+    "rating": 4,
+    "cover": "trailer-park-boys.jpg"
   },
   {
     "type": "movie",
