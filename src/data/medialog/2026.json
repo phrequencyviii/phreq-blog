@@ -793,6 +793,14 @@
   },
   {
     "type": "music",
+    "title": "Walk Beyond the Dark",
+    "artist": "Abigail Williams",
+    "year": 2019,
+    "rating": 4,
+    "cover": "walk-beyond-the-dark.jpg"
+  },
+  {
+    "type": "music",
     "title": "With No Human Intervention",
     "artist": "Aborym",
     "year": 2003,
