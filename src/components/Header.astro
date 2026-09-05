@@ -118,6 +118,12 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	@media (max-width: 720px) {
 		.social-links { display: none; }
+		nav { height: auto; }
+		.nav-links {
+			flex-wrap: wrap;
+			justify-content: center;
+			row-gap: 0.25em;
+		}
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.nav-links a, .social-links a, .theme-toggle { transition: none; }
