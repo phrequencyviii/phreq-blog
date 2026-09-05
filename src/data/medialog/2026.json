@@ -209,6 +209,14 @@
   },
   {
     "type": "music",
+    "title": "The Anomalies of Artificial Origin",
+    "artist": "Abominable Putridity",
+    "year": 2012,
+    "rating": 4,
+    "cover": "the-anomalies-of-artificial-origin.jpg"
+  },
+  {
+    "type": "music",
     "title": "Antichrist",
     "artist": "Akercocke",
     "year": 2007,
@@ -238,6 +246,14 @@
     "year": 2017,
     "rating": 4,
     "cover": "bathos.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Becoming",
+    "artist": "Abigail Williams",
+    "year": 2012,
+    "rating": 5,
+    "cover": "becoming.jpg"
   },
   {
     "type": "music",
@@ -393,6 +409,22 @@
   },
   {
     "type": "music",
+    "title": "In the Absence of Light",
+    "artist": "Abigail Williams",
+    "year": 2010,
+    "rating": 3,
+    "cover": "in-the-absence-of-light.jpg"
+  },
+  {
+    "type": "music",
+    "title": "In the Shadow of a Thousand Suns",
+    "artist": "Abigail Williams",
+    "year": 2008,
+    "rating": 3,
+    "cover": "in-the-shadow-of-a-thousand-suns.jpg"
+  },
+  {
+    "type": "music",
     "title": "In Times Before the Light",
     "artist": "Covenant",
     "year": 1997,
@@ -446,6 +478,14 @@
     "year": 2007,
     "rating": 4,
     "cover": "legacy-of-evil.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Legend",
+    "artist": "Abigail Williams",
+    "year": 2006,
+    "rating": 3,
+    "cover": "legend.jpg"
   },
   {
     "type": "music",
@@ -1891,6 +1931,14 @@
   },
   {
     "type": "comic",
+    "title": "Batman: Cacophony",
+    "artist": "Kevin Smith & Walt Flanagan",
+    "year": 2009,
+    "rating": 4,
+    "cover": "batman-cacophony.jpg"
+  },
+  {
+    "type": "comic",
     "title": "Batman: The Killing Joke",
     "artist": "Alan Moore & Brian Bolland",
     "year": 1988,
@@ -1899,11 +1947,35 @@
   },
   {
     "type": "comic",
+    "title": "Batman: The Man Who Laughs",
+    "artist": "Ed Brubaker & Doug Mahnke",
+    "year": 2005,
+    "rating": 5,
+    "cover": "batman-man-who-laughs.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Batman: Year One",
+    "artist": "Frank Miller & David Mazzucchelli",
+    "year": 1987,
+    "rating": 5,
+    "cover": "batman-year-one-tpb.jpg"
+  },
+  {
+    "type": "comic",
     "title": "Bone Vol. 2: The Great Cow Race",
     "artist": "Jeff Smith",
     "year": 1995,
     "rating": 5,
     "cover": "bone-vol-2.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "The Complete Peanuts: 1950-1952",
+    "artist": "Charles M. Schulz",
+    "year": 2004,
+    "rating": 4,
+    "cover": "complete-peanuts-1950-1952.jpg"
   },
   {
     "type": "comic",
@@ -1920,6 +1992,22 @@
     "year": 1988,
     "rating": 5,
     "cover": "essential-calvin-and-hobbes.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Garfield at Large",
+    "artist": "Jim Davis",
+    "year": 1980,
+    "rating": 4,
+    "cover": "garfield-at-large.jpg"
+  },
+  {
+    "type": "comic",
+    "title": "Gears of War: The Rise of RAAM",
+    "artist": "Kurtis J. Wiebe & Max Dunbar",
+    "year": 2018,
+    "rating": 4,
+    "cover": "gears-of-war-rise-of-raam.jpg"
   },
   {
     "type": "comic",
@@ -1945,6 +2033,22 @@
   },
   {
     "type": "book",
+    "title": "The Art of Halo: Creating a Virtual World",
+    "artist": "Eric S. Trautmann",
+    "year": 2004,
+    "rating": 5,
+    "cover": "art-of-halo.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Art of Halo Infinite",
+    "artist": "343 Industries",
+    "year": 2021,
+    "rating": 5,
+    "cover": "art-of-halo-infinite.jpg"
+  },
+  {
+    "type": "book",
     "title": "Console Wars",
     "artist": "Blake J. Harris",
     "year": 2014,
@@ -1961,6 +2065,14 @@
   },
   {
     "type": "book",
+    "title": "Dril Official \"Mr. Ten Years\" Anniversary Collection",
+    "artist": "dril",
+    "year": 2018,
+    "rating": 5,
+    "cover": "dril-mr-ten-years.jpg"
+  },
+  {
+    "type": "book",
     "title": "Electric Cars For Dummies",
     "artist": "Brian Culp",
     "year": 2022,
@@ -1969,11 +2081,27 @@
   },
   {
     "type": "book",
+    "title": "Final Fantasy Ultimania Archive Volume 1",
+    "artist": "Square Enix",
+    "year": 2018,
+    "rating": 4,
+    "cover": "final-fantasy-ultimania-archive-vol-1.jpg"
+  },
+  {
+    "type": "book",
     "title": "Getting Things Done: The Art of Stress-Free Productivity",
     "artist": "David Allen",
     "year": 2001,
     "rating": 4,
     "cover": "getting-things-done.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Halo Encyclopedia",
+    "artist": "343 Industries",
+    "year": 2022,
+    "rating": 5,
+    "cover": "halo-encyclopedia.jpg"
   },
   {
     "type": "book",
@@ -2025,6 +2153,22 @@
   },
   {
     "type": "book",
+    "title": "The Sprite Decade",
+    "artist": "Rodrigo Copetti",
+    "year": 2025,
+    "rating": 5,
+    "cover": "the-sprite-decade.jpg"
+  },
+  {
+    "type": "book",
+    "title": "StarCraft II: Field Manual",
+    "artist": "Rick Barba",
+    "year": 2015,
+    "rating": 4,
+    "cover": "starcraft-ii-field-manual.jpg"
+  },
+  {
+    "type": "book",
     "title": "Steve Jobs",
     "artist": "Walter Isaacson",
     "year": 2011,
@@ -2033,11 +2177,11 @@
   },
   {
     "type": "book",
-    "title": "The Sprite Decade",
-    "artist": "Rodrigo Copetti",
-    "year": 2025,
-    "rating": 5,
-    "cover": "the-sprite-decade.jpg"
+    "title": "Target: 20 Years of Design for All",
+    "artist": "Target",
+    "year": 2019,
+    "rating": 4,
+    "cover": "target-20-years-of-design-for-all.jpg"
   },
   {
     "type": "book",
@@ -2054,5 +2198,21 @@
     "year": 1989,
     "rating": 4,
     "cover": "west-of-eden.jpg"
+  },
+  {
+    "type": "book",
+    "title": "When Prozac No Longer Helps",
+    "artist": "Niklas Kvarforth",
+    "year": 2012,
+    "rating": 4,
+    "cover": "when-prozac-no-longer-helps.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Worlds of Amano",
+    "artist": "Yoshitaka Amano",
+    "year": 2007,
+    "rating": 4,
+    "cover": "worlds-of-amano.jpg"
   }
 ]
