@@ -1752,6 +1752,38 @@
   },
   {
     "type": "book",
+    "title": "Getting Things Done: The Art of Stress-Free Productivity",
+    "artist": "David Allen",
+    "year": 2001,
+    "rating": 4,
+    "cover": "getting-things-done.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Halo: First Strike",
+    "artist": "Eric Nylund",
+    "year": 2003,
+    "rating": 4,
+    "cover": "halo-first-strike.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Halo: The Fall of Reach",
+    "artist": "Eric Nylund",
+    "year": 2001,
+    "rating": 5,
+    "cover": "halo-fall-of-reach.jpg"
+  },
+  {
+    "type": "book",
+    "title": "Halo: The Flood",
+    "artist": "William C. Dietz",
+    "year": 2003,
+    "rating": 3,
+    "cover": "halo-the-flood.jpg"
+  },
+  {
+    "type": "book",
     "title": "The Long Hard Road Out of Hell",
     "artist": "Marilyn Manson & Neil Strauss",
     "year": 1998,
@@ -1768,11 +1800,11 @@
   },
   {
     "type": "book",
-    "title": "The Sprite Decade",
-    "artist": "Rodrigo Copetti",
-    "year": 2025,
+    "title": "Opening the Xbox: Inside Microsoft's Plan to Unleash an Entertainment Revolution",
+    "artist": "Dean Takahashi",
+    "year": 2002,
     "rating": 5,
-    "cover": "the-sprite-decade.jpg"
+    "cover": "opening-the-xbox.jpg"
   },
   {
     "type": "book",
@@ -1781,5 +1813,29 @@
     "year": 2011,
     "rating": 5,
     "cover": "steve-jobs.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Sprite Decade",
+    "artist": "Rodrigo Copetti",
+    "year": 2025,
+    "rating": 5,
+    "cover": "the-sprite-decade.jpg"
+  },
+  {
+    "type": "book",
+    "title": "The Ultimate History of Video Games, Vol. 1",
+    "artist": "Steven L. Kent",
+    "year": 2001,
+    "rating": 5,
+    "cover": "ultimate-history-of-video-games-vol-1.jpg"
+  },
+  {
+    "type": "book",
+    "title": "West of Eden: The End of Innocence at Apple Computer",
+    "artist": "Frank Rose",
+    "year": 1989,
+    "rating": 4,
+    "cover": "west-of-eden.jpg"
   }
 ]
