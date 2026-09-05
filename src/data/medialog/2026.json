@@ -121,6 +121,14 @@
   },
   {
     "type": "music",
+    "title": "The Archaic Abattoir",
+    "artist": "Aborted",
+    "year": 2005,
+    "rating": 3,
+    "cover": "the-archaic-abattoir.jpg"
+  },
+  {
+    "type": "music",
     "title": "Against the Seasons: Cold Winter Songs from the Dead Summer Heat",
     "artist": "Woods of Ypres",
     "year": 2002,
@@ -225,6 +233,14 @@
   },
   {
     "type": "music",
+    "title": "Bathos",
+    "artist": "Aborted",
+    "year": 2017,
+    "rating": 4,
+    "cover": "bathos.jpg"
+  },
+  {
+    "type": "music",
     "title": "Blizzard of Ozz",
     "artist": "Ozzy Osbourne",
     "year": 1980,
@@ -249,6 +265,14 @@
   },
   {
     "type": "music",
+    "title": "Coronary Reconstruction",
+    "artist": "Aborted",
+    "year": 2010,
+    "rating": 5,
+    "cover": "coronary-reconstruction.jpg"
+  },
+  {
+    "type": "music",
     "title": "Dekadens",
     "artist": "Lifelover",
     "year": 2009,
@@ -262,6 +286,14 @@
     "year": 2009,
     "rating": 4,
     "cover": "destroying-the-sacred.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Dirty",
+    "artist": "Aborym",
+    "year": 2013,
+    "rating": 3,
+    "cover": "aborym-dirty.jpg"
   },
   {
     "type": "music",
@@ -281,11 +313,35 @@
   },
   {
     "type": "music",
+    "title": "Epoch of Methodic Carnage",
+    "artist": "Abysmal Torment",
+    "year": 2006,
+    "rating": 3,
+    "cover": "epoch-of-methodic-carnage.jpg"
+  },
+  {
+    "type": "music",
     "title": "Follow the Leader",
     "artist": "Korn",
     "year": 1998,
     "rating": 4,
     "cover": "follow-the-leader.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Generator",
+    "artist": "Aborym",
+    "year": 2006,
+    "rating": 4,
+    "cover": "aborym-generator.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Global Flatline",
+    "artist": "Aborted",
+    "year": 2012,
+    "rating": 4,
+    "cover": "global-flatline.jpg"
   },
   {
     "type": "music",
@@ -297,6 +353,14 @@
   },
   {
     "type": "music",
+    "title": "Goremageddon: The Saw and the Carnage Done",
+    "artist": "Aborted",
+    "year": 2003,
+    "rating": 4,
+    "cover": "goremageddon.jpg"
+  },
+  {
+    "type": "music",
     "title": "The Grey EP",
     "artist": "Agalloch",
     "year": 2004,
@@ -305,11 +369,27 @@
   },
   {
     "type": "music",
+    "title": "The Haematobic EP",
+    "artist": "Aborted",
+    "year": 2004,
+    "rating": 3,
+    "cover": "the-haematobic-ep.jpg"
+  },
+  {
+    "type": "music",
     "title": "Hideous Aftermath",
     "artist": "Sanguisugabogg",
     "year": 2025,
     "rating": 5,
     "cover": "hideous-aftermath.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Incised Wound Suicide",
+    "artist": "Abysmal Torment",
+    "year": 2004,
+    "rating": 3,
+    "cover": "incised-wound-suicide.jpg"
   },
   {
     "type": "music",
@@ -342,6 +422,14 @@
     "year": 1994,
     "rating": 4,
     "cover": "korn.jpg"
+  },
+  {
+    "type": "music",
+    "title": "La Grande Mascarade",
+    "artist": "Aborted",
+    "year": 2020,
+    "rating": 4,
+    "cover": "la-grande-mascarade.jpg"
   },
   {
     "type": "music",
@@ -393,6 +481,14 @@
   },
   {
     "type": "music",
+    "title": "The Necrotic Manifesto",
+    "artist": "Aborted",
+    "year": 2014,
+    "rating": 4,
+    "cover": "the-necrotic-manifesto.jpg"
+  },
+  {
+    "type": "music",
     "title": "Neon",
     "artist": "Lantlôs",
     "year": 2010,
@@ -433,6 +529,14 @@
   },
   {
     "type": "music",
+    "title": "Omnicide",
+    "artist": "Abysmal Torment",
+    "year": 2009,
+    "rating": 4,
+    "cover": "omnicide.jpg"
+  },
+  {
+    "type": "music",
     "title": "Our Little Secret",
     "artist": "Lords of Acid",
     "year": 1997,
@@ -441,11 +545,27 @@
   },
   {
     "type": "music",
+    "title": "The Pain, Will Be Exquisite",
+    "artist": "Aborted",
+    "year": 2025,
+    "rating": 4,
+    "cover": "the-pain-will-be-exquisite.jpg"
+  },
+  {
+    "type": "music",
     "title": "Pale Folklore",
     "artist": "Agalloch",
     "year": 1999,
     "rating": 4,
     "cover": "pale-folklore.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Psychogrotesque",
+    "artist": "Aborym",
+    "year": 2010,
+    "rating": 4,
+    "cover": "psychogrotesque.jpg"
   },
   {
     "type": "music",
@@ -470,6 +590,14 @@
     "year": 2022,
     "rating": 4,
     "cover": "korn-requiem.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Retrogore",
+    "artist": "Aborted",
+    "year": 2016,
+    "rating": 5,
+    "cover": "retrogore.jpg"
   },
   {
     "type": "music",
@@ -537,6 +665,14 @@
   },
   {
     "type": "music",
+    "title": "Slaughter & Apparatus: A Methodical Overture",
+    "artist": "Aborted",
+    "year": 2007,
+    "rating": 3,
+    "cover": "slaughter-and-apparatus.jpg"
+  },
+  {
+    "type": "music",
     "title": "Spiritually Uncontrolled Art",
     "artist": "Liers in Wait",
     "year": 1992,
@@ -545,11 +681,35 @@
   },
   {
     "type": "music",
+    "title": "Strychnine.213",
+    "artist": "Aborted",
+    "year": 2008,
+    "rating": 4,
+    "cover": "strychnine-213.jpg"
+  },
+  {
+    "type": "music",
     "title": "Take a Look in the Mirror",
     "artist": "Korn",
     "year": 2003,
     "rating": 3,
     "cover": "take-a-look-in-the-mirror.jpg"
+  },
+  {
+    "type": "music",
+    "title": "Termination Redux",
+    "artist": "Aborted",
+    "year": 2016,
+    "rating": 5,
+    "cover": "termination-redux.jpg"
+  },
+  {
+    "type": "music",
+    "title": "TerrorVision",
+    "artist": "Aborted",
+    "year": 2018,
+    "rating": 4,
+    "cover": "terrorvision.jpg"
   },
   {
     "type": "music",
@@ -590,6 +750,14 @@
     "year": 2008,
     "rating": 5,
     "cover": "agalloch-the-white-ep.jpg"
+  },
+  {
+    "type": "music",
+    "title": "With No Human Intervention",
+    "artist": "Aborym",
+    "year": 2003,
+    "rating": 4,
+    "cover": "with-no-human-intervention.jpg"
   },
   {
     "type": "music",
