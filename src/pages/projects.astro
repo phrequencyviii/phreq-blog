@@ -7,13 +7,14 @@ import { SITE_DESCRIPTION } from '../consts';
 
 interface Project {
 	title: string;
-	status: 'active' | 'paused' | 'shipped';
+	status: 'active' | 'upcoming' | 'paused' | 'shipped';
 	description: string;
 	link?: string;
 }
 
 const statusLabel = {
 	active: 'Active',
+	upcoming: 'Upcoming',
 	paused: 'Paused',
 	shipped: 'Shipped',
 };
@@ -24,6 +25,11 @@ const projects: Project[] = [
 		status: 'active',
 		description: "This counts, right? It's my personal blog where I share my thoughts and interests that probably only I care about.",
 		link: 'https://phreq.blog',
+	},
+	{
+		title: 'Gaming in the Garden',
+		status: 'upcoming',
+		description: "This is a website/blog focused on the most niche of niche topics, hardcore gaming on Apple devices. Gaming on Apple's ecosystem is pretty bad, and it doesn't need to be. I started this blog to make some noise around that, because with escalating hardware costs, there's no reason all this powerful silicon we already have can't be put to good use.",
 	},
 ];
 ---
@@ -79,8 +85,22 @@ const projects: Project[] = [
 				color: rgb(var(--gray));
 			}
 			.status.active {
-				color: var(--accent);
-				border-color: var(--accent);
+				color: #4a7a58;
+				border-color: #4a7a58;
+			}
+			.status.upcoming {
+				color: #9c7a2e;
+				border-color: #9c7a2e;
+			}
+			@media (prefers-color-scheme: dark) {
+				.status.active {
+					color: #82b592;
+					border-color: #82b592;
+				}
+				.status.upcoming {
+					color: #cca85e;
+					border-color: #cca85e;
+				}
 			}
 			.project-description {
 				color: rgb(var(--gray-dark));
