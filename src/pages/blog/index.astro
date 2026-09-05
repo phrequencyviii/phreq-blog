@@ -123,6 +123,14 @@ const posts = await Promise.all(
 			.micro .micro-body :global(p:last-child) {
 				margin-bottom: 0;
 			}
+			.micro-image {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				object-fit: cover;
+				border-radius: 8px;
+				margin-top: 0.75em;
+			}
 			.tags {
 				margin-top: 0.5em;
 				display: flex;
@@ -158,6 +166,9 @@ const posts = await Promise.all(
 									<div class="micro-body">
 										<MicroContent />
 									</div>
+									{post.data.heroImage && (
+										<img class="micro-image" src={post.data.heroImage} alt="" loading="lazy" />
+									)}
 									{post.data.tags && post.data.tags.length > 0 && (
 										<div class="tags">
 											{post.data.tags.map((tag) => (
